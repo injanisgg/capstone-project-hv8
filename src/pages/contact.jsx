@@ -1,5 +1,5 @@
 import React from 'react'
-import Rose from '../img/rose.png'
+import Winter from '../img/winter.png'
 
 function Contact() {
   return (
@@ -18,17 +18,18 @@ function Contact() {
             className="form-input w-full bg-gray-100 rounded-lg py-3 pl-5 pr-4 text-gray-700 placeholder-gray-500 border border-gray-400"
             placeholder="Email"
           />
-          <input
-            type="text"
-            className="form-input w-full h-48 bg-gray-100 rounded-lg py-3 pl-5 pr-4 text-gray-700 placeholder-gray-500 border border-gray-400"
-            placeholder="Email"
-          />
+          <div className="relative w-full">
+            <textarea 
+              className="absolute top-0 left-0 w-full h-48 bg-gray-100 rounded-lg p-5 text-gray-700 placeholder-gray-500 border border-gray-400 resize-none" 
+              placeholder="Write messages you want to tell us"
+            />
+          </div>
           <button className="rounded-lg w-96 bg-main-yellow h-10 font-semibold">Send</button>
         </form>
       </div>
         <div className='pt-4 bg-landing h-max w-[542px] absolute right-0 pl-14'>
-          <div className='w-[441.5px]'>
-            <img src={Rose} alt="Rose Blackpink" />
+          <div className='w-[426px]'>
+            <img src={Winter} alt="Rose Blackpink" />
           </div>
         </div>
     </div>
