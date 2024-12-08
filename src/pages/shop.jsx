@@ -9,7 +9,7 @@ import { setProducts } from '../redux/actions/products-actions'
 function Shop() {
 
   const products = useSelector((state) => state);
-  const dispacth = useDispatch();
+  const dispatch = useDispatch();
 
   {/* fetching api */}
   const fetchProducts = async() => {
@@ -18,7 +18,7 @@ function Shop() {
     .catch((error) => {
       console.log(error)
     })
-    dispacth(setProducts(response.data))
+    dispatch(setProducts(response.data))
   }
 
   useEffect(() => {
@@ -29,7 +29,7 @@ function Shop() {
     <>
     <div className='flex gap-5 mx-16 mt-6'>
       <FiltersBar />
-      <div className="grid grid-cols-1 grid-rows-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 grid-rows-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
         <CardPictShop/>
       </div>
     </div>

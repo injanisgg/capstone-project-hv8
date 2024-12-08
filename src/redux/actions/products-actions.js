@@ -21,3 +21,27 @@ export const removeSelectedProduct = (product) => {
         type: ActionsTypes.REMOVE_SELECTED_PRODUCTS, //key sebagai type
     }
 }
+
+export const addingQuantity = () => {
+    return {
+        type: ActionsTypes.ADDITION
+    }
+}
+
+export const reducingQuantity = () => {
+    return {
+        type: ActionsTypes.REDUCTION
+    }
+}
+
+export const addingStock = () => {
+    return {
+        type: ActionsTypes.ADDITION
+    }
+}
+
+export const reducingStock = () => {
+    return {
+        type: ActionsTypes.REDUCTION
+    }
+}

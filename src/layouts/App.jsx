@@ -7,10 +7,14 @@ function App() {
   const location = useLocation();
   const showNavbar = location.pathname !== '/login' && location.pathname !== '/signin';
 
+  //cek apakah sudah signin atau login
+  const isLoggedin = localStorage.getItem('authToken');
+  const showPopupSignin = !isLoggedin; 
+
   return (
     <>
-    {showNavbar && <Navbar />} {/* Render Navbar hanya jika bukan di halaman login */}
-      {/* <PopupSignin /> */}
+      {showPopupSignin && <PopupSignin />} {/* pop up yang muncul hanya ketika belum sign in atau login */}
+      {showNavbar && <Navbar />} {/* Render Navbar hanya jika bukan di halaman login dan signin */}
       <Outlet/>
     </>
   );

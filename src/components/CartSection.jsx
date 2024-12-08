@@ -3,7 +3,7 @@ import CardPicture from './CardPicture';
 
 function CartSection() {
   return (
-    <div className='flex gap-6'>
+    <div className='flex gap-6 mt-5'>
       <div className="bg-white shadow-md rounded-2xl overflow-hidden px-4 py-4 border border-slate-200 w-[700px] ml-20 pl-7">
         <div className="relative">
             {/*content product*/}

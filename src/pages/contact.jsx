@@ -20,7 +20,7 @@ function Contact() {
           />
           <div className="relative w-full">
             <textarea 
-              className="absolute top-0 left-0 w-full h-48 bg-gray-100 rounded-lg p-5 text-gray-700 placeholder-gray-500 border border-gray-400 resize-none" 
+              className="top-0 left-0 w-full h-48 bg-gray-100 rounded-lg p-5 text-gray-700 placeholder-gray-500 border border-gray-400 resize-none" 
               placeholder="Write messages you want to tell us"
             />
           </div>
