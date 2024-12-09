@@ -24,24 +24,58 @@ export const removeSelectedProduct = (product) => {
 
 export const addingQuantity = () => {
     return {
-        type: ActionsTypes.ADDITION
+        type: ActionsTypes.ADDITION_QUANTITY
     }
 }
 
 export const reducingQuantity = () => {
     return {
-        type: ActionsTypes.REDUCTION
+        type: ActionsTypes.REDUCTION_QUANTITY
     }
 }
 
 export const addingStock = () => {
     return {
-        type: ActionsTypes.ADDITION
+        type: ActionsTypes.ADDITION_STOCK
     }
 }
 
 export const reducingStock = () => {
     return {
-        type: ActionsTypes.REDUCTION
+        type: ActionsTypes.REDUCTION_STOCK
+    }
+}
+
+export const setError = (errorMessage) => {
+    return{
+        type: ActionsTypes.SET_ERROR,
+        payload: errorMessage
+    }
+}
+
+export const clearError = () => {
+    return{
+        type: ActionsTypes.CLEAR_ERROR
+    }
+}
+
+export const addToCart = (product) => {
+    return{
+        type: ActionsTypes.ADD_TO_CART,
+        payload: product
+    }
+}
+
+export const removeFromCart = (productId) => {
+    return{
+        type: ActionsTypes.REMOVE_FROM_CART,
+        payload: productId
+    }
+}
+
+export const updateCartQuantity = (product) => {
+    return{
+        type: ActionsTypes.UPDATE_CART_QUANTITY,
+        payload: product
     }
 }

@@ -4,6 +4,8 @@ const initialState = {
     products: [],
     stock: 20,
     quantity: 0,
+    error: null,
+    cartItems: [], 
 }
 
 {/*reducer products*/}
@@ -34,10 +36,10 @@ export const selectedProductReducer = (state={}, {type, payload}) => {
 {/*reducer for stock*/}
 export const stockReducer = (state = { stock: 20 }, { type, payload }) => {
     switch (type) {
-        case ActionsTypes.ADDITION:
+        case ActionsTypes.ADDITION_STOCK:
             return { ...state, stock: state.stock + 1 };  // Mengurangi stok ketika quantity ditambahkan
     
-        case ActionsTypes.REDUCTION:
+        case ActionsTypes.REDUCTION_STOCK:
             return { ...state, stock: state.stock - 1 }; // Menambah stok ketika quantity dikurangi
 
         default:
@@ -48,10 +50,10 @@ export const stockReducer = (state = { stock: 20 }, { type, payload }) => {
 {/*reducer for quantity*/}
 export const quantityReducer = (state = { quantity: 0 }, { type, payload }) => {
     switch (type) {
-        case ActionsTypes.ADDITION:
+        case ActionsTypes.ADDITION_QUANTITY:
             return { ...state, quantity: state.quantity + 1 };
     
-        case ActionsTypes.REDUCTION:
+        case ActionsTypes.REDUCTION_QUANTITY:
             if (state.quantity > 0 ) {  // Pastikan quantity tidak kurang dari 0
                 return { ...state, quantity: state.quantity - 1 };
             }
@@ -62,3 +64,65 @@ export const quantityReducer = (state = { quantity: 0 }, { type, payload }) => {
     }
 }
 
+{/*reducer for error stock and quantity*/}
+export const errorReducer = (state = {error : null}, { type, payload }) => {
+    switch (type) {
+        case ActionsTypes.SET_ERROR:
+            return { ...state, error: payload }
+        
+        case ActionsTypes.CLEAR_ERROR:
+            return { ...state, error: payload }
+
+        default:
+            return state;
+    }
+}
+
+{/*reducer for cart*/}
+export const cartReducer = (state = { cartItems: [] }, action) => {
+  switch (action.type) {
+    case ActionsTypes.ADD_TO_CART:
+      const existingItemIndex = state.cartItems.findIndex(
+        (item) => item.id === action.payload.id
+      );
+
+      if (existingItemIndex !== -1) {
+        // Jika item sudah ada, perbarui kuantitas
+        const updatedCartItems = state.cartItems.map((item, index) =>
+          index === existingItemIndex
+            ? { ...item, quantity: item.quantity + action.payload.quantity }
+            : item
+        );
+        return {
+          ...state,
+          cartItems: updatedCartItems,
+        };
+      } else {
+        // Jika item belum ada, tambahkan ke keranjang
+        return {
+          ...state,
+          cartItems: [...state.cartItems, { ...action.payload }],
+        };
+      }
+
+    case ActionsTypes.REMOVE_FROM_CART:
+      return {
+        ...state,
+        cartItems: state.cartItems.filter((item) => item.id !== action.payload),
+      };
+
+    case ActionsTypes.UPDATE_CART_QUANTITY:
+      const updatedCartQuantity = state.cartItems.map((item) =>
+        item.id === action.payload.id
+          ? { ...item, quantity: action.payload.quantity }
+          : item
+      );
+      return {
+        ...state,
+        cartItems: updatedCartQuantity,
+      };
+
+    default:
+      return state;
+  }
+};
