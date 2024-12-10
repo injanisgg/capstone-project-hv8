@@ -28,4 +28,7 @@ export const ActionsTypes = {
     REMOVE_FROM_CART: "REMOVE_FROM_CART",
     UPDATE_CART_QUANTITY: "UPDATE_CART_QUANTITY",
 
+    //search
+    SET_SEARCH: "SET_SEARCH",
+
 };

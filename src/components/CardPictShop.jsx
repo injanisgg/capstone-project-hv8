@@ -56,8 +56,8 @@ function CardPictShop() {
   return (
     <>
       {isLoading ? (
-        <div className="flex justify-center items-center">
-          <img src={LoadingGif} alt="Loading..." />
+        <div className="">
+          <img src={LoadingGif} alt="Loading..." className='m-[25rem]'/>
         </div>
       ) : (
         renderList

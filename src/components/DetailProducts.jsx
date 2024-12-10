@@ -122,7 +122,7 @@ function DetailProducts() {
               <div className="flex flex-col justify-evenly">
                 {[image, image].map((img, index) => (
                   <div key={index} className="mb-5 w-52">
-                    <CardPicture picture={img} />
+                    <CardPicture picture={img}/>
                   </div>
                 ))}
               </div>
