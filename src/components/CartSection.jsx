@@ -79,7 +79,7 @@ function CartSection() {
   return (
     <div className="flex gap-6 mt-5">
       {cartItems.length === 0 ? (
-        <div className="text-main-army text-center">Your cart is empty :(</div>
+        <div className="text-white font-bold text-3xl text-center px-64 py-20 mx-[26rem] my-2 bg-main-army rounded-3xl">Your Cart is Empty 😓</div>
       ) : (
         <>
         {/* Cart item */}
