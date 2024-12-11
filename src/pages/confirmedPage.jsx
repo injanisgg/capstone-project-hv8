@@ -1,0 +1,27 @@
+import React from 'react'
+import CormPict from '../img/confirmedPict.png'
+
+function ConfirmedPage() {
+  return (
+    <div className='flex flex-col justify-center md:justify-around items-center m-6'>
+        <div className='flex gap-2'>
+            <div className="text-main-army font-bold text-3xl text-center">CONFIRMED</div>
+            <i class="fa-solid fa-circle-check text-main-army"></i>
+        </div>
+        <div className='flex flex-col gap-2'>
+            <h2 className="text-black font-bold text-xl text-center">THANK YOU FOR YOUR ORDER</h2>
+            <h2 className="text-black font-bold text-xl text-center">Order Id: 171419</h2>   
+        </div>
+        <div>
+            <img src={CormPict} alt="" />   
+        </div>
+        <div className="flex flex-col gap-2 text-black font-2xl font-bold text-center">
+            <h3>Estimated delivery</h3> 
+            <h3>Wednesday, 14th May 2025</h3>
+        </div>
+        <button className="rounded-3xl bg-main-yellow w-56 h-12 font-semibold ml-2 my-4">Back Shopping</button>
+    </div>
+  )
+}
+
+export default ConfirmedPage

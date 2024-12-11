@@ -5,11 +5,11 @@ import { useLocation } from "react-router-dom";
 
 function App() {
   const location = useLocation();
-  const showNavbar = location.pathname !== '/login' && location.pathname !== '/signin';
+  const showNavbar = location.pathname !== '/login' && location.pathname !== '/signup' ;
 
   //cek apakah sudah signin atau login
   const isLoggedin = localStorage.getItem('authToken');
-  const showPopupSignin = !isLoggedin; 
+  const showPopupSignin = !isLoggedin && location.pathname !== '/login' &&  location.pathname !== '/signup';
 
   return (
     <>

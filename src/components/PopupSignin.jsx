@@ -4,15 +4,20 @@ function PopupSignin() {
     const navigate = useNavigate();
 
     const handleRedirect = () => {
-        navigate("/signin");
+        navigate("/signup");
     }
 
-    return(
+    return (
         <div className="bg-main-army py-2 text-white flex gap-5 justify-center" onClick={handleRedirect}>
             <span>Sign up and get 20% off to your first order.</span>
-            <span><a href="/" className="underline">Sign Up Now</a></span>
+            <span className="underline cursor-pointer" onClick={(e) => {
+                e.stopPropagation(); // Mencegah `div` menangkap event klik
+                navigate("/signup"); // Navigasi ke halaman lain
+            }}>
+                Sign Up Now
+            </span>
         </div>
-    )
+    );
 }
 
 export default PopupSignin;

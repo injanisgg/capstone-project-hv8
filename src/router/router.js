@@ -7,9 +7,9 @@ import Shop from "../pages/shop";
 import Cart from "../pages/cart";
 import Profile from "../pages/profile";
 import LoginPage from "../pages/login.jsx";
-import SignIn from "../pages/signin";
 import ProductDetails from "../pages/productDetails.jsx";
-
+import SignUp from "../pages/signup.jsx";
+import ConfirmedPage from "../pages/confirmedPage.jsx";
 
 const router = createBrowserRouter([
     {
@@ -45,12 +45,16 @@ const router = createBrowserRouter([
                 element: <LoginPage/>
             },
             {
-                path: "/signin",
-                element: <SignIn/>
+                path: "/signup",
+                element: <SignUp/>
             },
             {
                 path: "/shop/:id",
                 element: <ProductDetails/>
+            },
+            {
+                path: "/confirm",
+                element: <ConfirmedPage/>
             }
 
         ]

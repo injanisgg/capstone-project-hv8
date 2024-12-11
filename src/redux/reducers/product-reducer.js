@@ -90,7 +90,7 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
         // Jika item sudah ada, perbarui kuantitas
         const updatedCartItems = state.cartItems.map((item, index) =>
           index === existingItemIndex
-            ? { ...item, quantity: item.quantity + action.payload.quantity }
+            ? { ...item, quantity: item.quantity + action.payload.quantity, stock: action.payload.stock }
             : item
         );
         return {
@@ -109,17 +109,6 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
       return {
         ...state,
         cartItems: state.cartItems.filter((item) => item.id !== action.payload),
-      };
-
-    case ActionsTypes.UPDATE_CART_QUANTITY:
-      const updatedCartQuantity = state.cartItems.map((item) =>
-        item.id === action.payload.id
-          ? { ...item, quantity: action.payload.quantity }
-          : item
-      );
-      return {
-        ...state,
-        cartItems: updatedCartQuantity,
       };
 
     default:

@@ -2,129 +2,139 @@ import React, { useState, useEffect } from 'react';
 import CardPicture from './CardPicture';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeFromCart, addToCart } from '../redux/actions/products-actions';
+import { useNavigate } from 'react-router-dom';
 
 function CartSection() {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const dispatch = useDispatch();
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   // useEffect untuk menyimpan cartItems ke localStorage
   useEffect(() => {
     cartItems.forEach((item) => {
-      // Menyimpan data ke localStorage
-      localStorage.setItem(`stock-${item.id}`, JSON.stringify(item.stock));
+      console.log(`Saving to localStorage: stock-${item.id}: ${item.stock}, quantity-${item.id}: ${item.quantity}`);
+      localStorage.setItem(`stock-${item.id}`, JSON.stringify(item.stock)); // Pastikan item.stock ada
       localStorage.setItem(`quantity-${item.id}`, JSON.stringify(item.quantity));
     });
   }, [cartItems]);
-
-  // useEffect untuk mengambil data dari localStorage saat komponen pertama kali dimuat
-  useEffect(() => {
-    cartItems.forEach((item) => {
-      const storedQuantity = localStorage.getItem(`quantity-${item.id}`);
-      const storedStock = localStorage.getItem(`stock-${item.id}`);
-
-      // Memastikan bahwa data ada sebelum di-parse
-      const parsedQuantity = storedQuantity ? JSON.parse(storedQuantity) : item.quantity;
-      const parsedStock = storedStock ? JSON.parse(storedStock) : item.stock;
-
-      // Mengupdate cart item dengan nilai yang diambil dari localStorage
-      dispatch(
-        addToCart({
-          ...item,
-          quantity: parsedQuantity,
-          stock: parsedStock,
-        })
-      );
-    });
-  }, [cartItems, dispatch]);
 
   const handleRemoveItem = (id) => {
     dispatch(removeFromCart(id));
   };
 
-  const handleIncrement = (product) => {
-    if (product.stock > 0 && product.quantity < 20) {
-      dispatch(
-        addToCart({
-          ...product,
-          quantity: product.quantity + 1,
-          stock: product.stock - 1,
-        })
-      );
-      setError(''); // Reset error
-    } else {
-      const errorMessage = product.stock <= 0 
-        ? "Out of Stock" 
-        : "Maximum quantity reached";
-      setError(errorMessage);
-    }
-  };
+ const handleIncrement = (product) => {
+  if (product.stock > 0 && product.quantity < 20) {
+    const newQuantity = product.quantity + 1;
+    const newStock = product.stock - 1;
 
-  const handleDecrement = (product) => {
-    if (product.quantity > 1) {
-      dispatch(
-        addToCart({
-          ...product,
-          quantity: product.quantity - 1,
-          stock: product.stock + 1,
-        })
-      );
-      setError(''); // Reset error
-    } else {
-      const errorMessage = "Minimum quantity is 1";
-      setError(errorMessage);
-    }
-  };
+    dispatch(
+      addToCart({
+        ...product,
+        quantity: newQuantity,
+        stock: newStock,
+      })
+    );
+
+    // Simpan ke localStorage
+    localStorage.setItem(`quantity-${product.id}`, JSON.stringify(newQuantity));
+    localStorage.setItem(`stock-${product.id}`, JSON.stringify(newStock));
+
+    setError(''); // Reset error
+  } else {
+    const errorMessage = product.stock <= 0 
+      ? "Out of Stock" 
+      : "Maximum quantity reached";
+    setError(errorMessage);
+  }
+};
+
+const handleDecrement = (product) => {
+  if (product.quantity > 1) {
+    const newQuantity = product.quantity - 1;
+    const newStock = product.stock + 1;
+
+    dispatch(
+      addToCart({
+        ...product,
+        quantity: newQuantity,
+        stock: newStock,
+      })
+    );
+
+    // Simpan ke localStorage
+    localStorage.setItem(`quantity-${product.id}`, JSON.stringify(newQuantity));
+    localStorage.setItem(`stock-${product.id}`, JSON.stringify(newStock));
+
+    setError(''); // Reset error
+  } else {
+    const errorMessage = "Minimum quantity is 1";
+    setError(errorMessage);
+  }
+};
+
+//handle confirm page
+const handleConfirm = () => {
+  navigate('/confirm')
+}
 
   return (
     <div className="flex gap-6 mt-5">
       {cartItems.length === 0 ? (
-        <div className="text-white font-bold text-3xl text-center px-64 py-20 mx-[26rem] my-2 bg-main-army rounded-3xl">Your Cart is Empty 😓</div>
+        <div className="text-main-army font-bold text-3xl text-center mx-[38rem] my-72">Your Cart is Empty 😓</div>
       ) : (
         <>
         {/* Cart item */}
           <div className="bg-white shadow-md rounded-2xl overflow-hidden px-4 py-4 border border-slate-200 w-[700px] ml-20 pl-7">
             <div className="relative">
-            {cartItems.map((item) => (
-              <div key={item.id}>
-                <div className="flex gap-4 mt-4">
-                  <div className="h-40 max-w-40 mb-5">
-                    <CardPicture picture={item.image} />
-                  </div>
-                  <div className="flex flex-col justify-around">
-                    <div className="flex gap-12 justify-between">
-                      <h2 className="text-main-army font-2xl font-bold w-96">{item.title}</h2>
-                      <i
-                        className="fa-solid fa-trash-can text-red-600"
-                        onClick={() => handleRemoveItem(item.id)}
-                      ></i>
+            {cartItems.map((item) => {
+              // Ambil data dari localStorage untuk setiap item
+              const storedQuantity = localStorage.getItem(`quantity-${item.id}`);
+              const storedStock = localStorage.getItem(`stock-${item.id}`);
+
+              const parsedQuantity = storedQuantity ? JSON.parse(storedQuantity) : item.quantity;
+              const parsedStock = storedStock ? JSON.parse(storedStock) : item.stock;
+
+              return (
+                <div key={item.id}>
+                  <div className="flex gap-4 mt-4">
+                    <div className="h-40 max-w-40 mb-5">
+                      <CardPicture picture={item.image} />
                     </div>
-                    <div className="flex justify-between gap-12">
-                      <span className="text-main-army font-bold font-2xl">${item.price}</span>
-                      <div className="bg-gray-100 rounded-full flex w-[130px] h-9 items-center">
-                        <button
-                          className="py-2 px-4 text-main-army fa-solid fa-minus"
-                          onClick={() => handleDecrement(item)}
-                          disabled={item.quantity <= 1}>
-                        </button>
-                        <span className="py-2 px-4 text-main-army">{item.quantity}</span>
-                        <button
-                          className="py-2 px-4 text-main-army fa-solid fa-plus"
-                          onClick={() => handleIncrement(item)}
-                          disabled={item.quantity >= 20 || item.stock <= 0}>
-                        </button>
+                    <div className="flex flex-col justify-around">
+                      <div className="flex gap-12 justify-between">
+                        <h2 className="text-main-army font-2xl font-bold w-96">{item.title}</h2>
+                        <i
+                          className="fa-solid fa-trash-can text-red-600"
+                          onClick={() => handleRemoveItem(item.id)}
+                        ></i>
+                      </div>
+                      <div className="flex justify-between gap-12">
+                        <span className="text-main-army font-bold font-2xl">${item.price}</span>
+                        <div className="bg-gray-100 rounded-full flex w-[130px] h-9 items-center">
+                          <button
+                            className="py-2 px-4 text-main-army fa-solid fa-minus"
+                            onClick={() => handleDecrement({ ...item, quantity: parsedQuantity, stock: parsedStock })}
+                            disabled={parsedQuantity <= 1}>
+                          </button>
+                          <span className="py-2 px-4 text-main-army">{parsedQuantity}</span>
+                          <button
+                            className="py-2 px-4 text-main-army fa-solid fa-plus"
+                            onClick={() => handleIncrement({ ...item, quantity: parsedQuantity, stock : parsedStock })}
+                            disabled={parsedQuantity >= 20 || parsedStock <= 0}>
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
+                  {error && <p className="text-red-500">{error}</p>}
+                  <div className="border-b-2 border-gray-300 w-[40rem] my-10"></div>
                 </div>
-                {error && <p className="text-red-500">{error}</p>}
-                <div className="border-b-2 border-gray-300 w-[40rem] my-10"></div>
-              </div>
-            ))}
+              );
+            })}
             </div>
           </div>
-          {/* End of cart item */}
-
+          {/*end of cart item*/}
           {/* Summary price */}
           <div className='bg-white shadow-md rounded-2xl overflow-hidden px-4 py-4 border border-slate-200 w-[600px] h-[550px] mr-20 px-7'>
             <div className='relative'>
@@ -158,7 +168,7 @@ function CartSection() {
                         </div>
                         <button className="rounded-3xl bg-main-yellow w-56 h-12 font-semibold ml-2 my-4">Apply</button>
                     </div>
-                    <button className="rounded-3xl bg-main-yellow w-[530px] h-12 font-semibold ml-2 my-4">Check Out</button>
+                    <button className="rounded-3xl bg-main-yellow w-[530px] h-12 font-semibold ml-2 my-4" onClick={handleConfirm}>Check Out</button>
                 </div>
             </div>
           </div>

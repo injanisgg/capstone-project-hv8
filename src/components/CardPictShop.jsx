@@ -23,10 +23,10 @@ function CardPictShop() {
 
   // Merender data dari API dalam products
   const renderList = products.map((product) => {
-    const { id, title, image, category, price, rating: { rate } } = product;
+  const { id, title, image, category, price, rating: { rate } } = product;
 
-    // Membatasi panjang title hingga 20 karakter
-    const truncatedTitle = title.length > 20 ? `${title.substring(0, 20)}...` : title;
+  // Membatasi panjang title hingga 20 karakter
+  const truncatedTitle = title.length > 20 ? `${title.substring(0, 20)}...` : title;
 
     return (
       <div
@@ -40,7 +40,7 @@ function CardPictShop() {
           </div>
         </div>
         <div className="flex flex-col gap-2 my-2 mx-2">
-          <div className="text-black bg-landing p-1 rounded-sm w-fit">{category}</div>
+          <div className="text-black bg-landing py-1 px-2 rounded-lg w-fit">{category}</div>
           <div className="text-main-army font-bold text-lg">{truncatedTitle}</div>
           <div className="flex gap-1 items-center">
             <span className="flex gap-1">{renderStars(rate)}</span>

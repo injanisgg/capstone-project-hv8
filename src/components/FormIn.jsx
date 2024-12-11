@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 function FormIn({ welcomeText, buttonText, questOne, actionOne, redirectTo }) {
   const [isOn, setIsOn] = useState(true); // true = Remember me on, false = off
+  const [eyeOn, setEyeOn] = useState(true)
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -27,6 +28,11 @@ function FormIn({ welcomeText, buttonText, questOne, actionOne, redirectTo }) {
   const handleToggle = () => {
     setIsOn((prevState) => !prevState);
   };
+
+  //Fungsi untuk menangani perubahan toggle eye
+  const handleEye = () => {
+    setEyeOn((prevState) => !prevState)
+  }
 
   // Fungsi untuk menangani submit form
   const handleSubmit = (event) => {
@@ -56,7 +62,8 @@ function FormIn({ welcomeText, buttonText, questOne, actionOne, redirectTo }) {
           value={password}
           onChange={(event) => setPassword(event.target.value)} // Menangkap input password
         />
-        <i className="fa-solid fa-eye absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
+        <i className={`fa-solid ${ eyeOn ? "fa-eye absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500" : "fa-eye-slash absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500"} cursor-pointer`}
+        onClick={handleEye}></i>
       </div>
 
       <div className="flex items-center text-gray-500">
@@ -64,7 +71,7 @@ function FormIn({ welcomeText, buttonText, questOne, actionOne, redirectTo }) {
           <button
             type="button"
             className={`fa-solid ${
-              isOn ? "fa-toggle-on text-main-yellow" : "fa-toggle-off text-main-yellow"
+              isOn ? "fa-toggle-off text-main-yellow" : "fa-toggle-on text-main-yellow"
             } fa-2x mr-2`}
             onClick={handleToggle}
           ></button>

@@ -2,7 +2,7 @@ import React from 'react'
 import FormIn from '../components/FormIn'
 import ImgLeft from '../img/left-sec.png'
 
-function SignIn() {
+function SignUp() {
   return (
     <div className='flex justify-around items-center'>
       <div>
@@ -14,4 +14,4 @@ function SignIn() {
   )
 }
 
-export default SignIn
+export default SignUp
