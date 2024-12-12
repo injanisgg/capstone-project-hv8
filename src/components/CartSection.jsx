@@ -13,12 +13,12 @@ function CartSection() {
   // useEffect untuk menyimpan cartItems ke localStorage
   useEffect(() => {
     cartItems.forEach((item) => {
-      console.log(`Saving to localStorage: stock-${item.id}: ${item.stock}, quantity-${item.id}: ${item.quantity}`);
       localStorage.setItem(`stock-${item.id}`, JSON.stringify(item.stock)); // Pastikan item.stock ada
       localStorage.setItem(`quantity-${item.id}`, JSON.stringify(item.quantity));
     });
   }, [cartItems]);
 
+  //menghapus barang ddari cart
   const handleRemoveItem = (id) => {
     dispatch(removeFromCart(id));
   };
@@ -28,12 +28,7 @@ function CartSection() {
     const newQuantity = product.quantity + 1;
     const newStock = product.stock - 1;
 
-    dispatch(
-      addToCart({
-        ...product,
-        quantity: newQuantity,
-        stock: newStock,
-      })
+    dispatch(addToCart({ ...product, quantity: newQuantity, stock: newStock })
     );
 
     // Simpan ke localStorage
@@ -55,11 +50,7 @@ const handleDecrement = (product) => {
     const newStock = product.stock + 1;
 
     dispatch(
-      addToCart({
-        ...product,
-        quantity: newQuantity,
-        stock: newStock,
-      })
+      addToCart({ ...product, quantity: newQuantity, stock: newStock })
     );
 
     // Simpan ke localStorage

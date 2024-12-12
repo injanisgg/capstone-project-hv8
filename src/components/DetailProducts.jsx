@@ -25,15 +25,13 @@ function DetailProducts() {
   const stockFromLocalStorage = localStorage.getItem(`stock-${id}`);
   const quantityFromLocalStorage = localStorage.getItem(`quantity-${id}`);
 
-  console.log("Stock from localStorage:", stockFromLocalStorage);
-  console.log("Quantity from localStorage:", quantityFromLocalStorage);
-
   const initialStock = stockFromLocalStorage !== null ? JSON.parse(stockFromLocalStorage) : 20; // Default 20 jika tidak ada
   const initialQuantity = quantityFromLocalStorage !== null ? JSON.parse(quantityFromLocalStorage) : 0; // Default 0 jika tidak ada
 
   const [localQuantity, setLocalQuantity] = useState(initialQuantity);
   const [stock, setStock] = useState(initialStock);
   const [succesMessage, setSuccessMessage] = useState('')
+  const [errorMessage, setErrorMessage] = useState('')
 
   const {
     image = '',
@@ -83,6 +81,12 @@ const handleAddQuantity = () => {
 
     dispatch(addingQuantity());
     dispatch(reducingStock());
+  } else {
+    setErrorMessage("Out of stock")
+
+    setTimeout(() => {
+      setErrorMessage('')
+    }, 2000)
   }
 };
 
@@ -101,11 +105,10 @@ const handleReduceQuantity = () => {
     dispatch(reducingQuantity());
     dispatch(addingStock());
   } else {
-    const errorMessage = "Quantity is already zero";
-    dispatch(setError(errorMessage));
+    setErrorMessage("Quantity is already zero");
 
     setTimeout(() => {
-      setError('');
+      setErrorMessage('');
     }, 2000);
   }
 };
@@ -131,8 +134,11 @@ const handleAddToCart = () => {
       setSuccessMessage('');
     }, 2000);
   } else {
-    const errorMessage = "Quantity must be greater than zero";
-    dispatch(setError(errorMessage));
+    setErrorMessage("Quantity must be greater than zero");
+
+    setTimeout(() => {
+      setErrorMessage('')
+    }, 2000)
   }
 };
   
@@ -205,7 +211,7 @@ const handleAddToCart = () => {
                   Add to cart
                 </button>
                </div>
-              {error && <p className='text-red-600'>{error}</p>}
+              {errorMessage && <p className='text-red-600'>{errorMessage}</p>}
               {succesMessage && <p className='text-green-500'>{succesMessage}</p>}
             </div>
           </>
