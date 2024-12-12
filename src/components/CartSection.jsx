@@ -23,51 +23,43 @@ function CartSection() {
     dispatch(removeFromCart(id));
   };
 
- const handleIncrement = (product) => {
-  if (product.stock > 0 && product.quantity < 20) {
+const handleIncrement = (product) => {
+  if (product.quantity < 20) {
     const newQuantity = product.quantity + 1;
-    const newStock = product.stock - 1;
-
-    dispatch(addToCart({ ...product, quantity: newQuantity, stock: newStock })
-    );
-
-    // Simpan ke localStorage
+    dispatch(addToCart({ ...product, quantity: newQuantity }));
     localStorage.setItem(`quantity-${product.id}`, JSON.stringify(newQuantity));
-    localStorage.setItem(`stock-${product.id}`, JSON.stringify(newStock));
-
-    setError(''); // Reset error
   } else {
-    const errorMessage = product.stock <= 0 
-      ? "Out of Stock" 
-      : "Maximum quantity reached";
-    setError(errorMessage);
+    setError("Maximum quantity reached");
+
+    setTimeout(() => {
+      setError('')
+    }, 2000)
   }
 };
 
 const handleDecrement = (product) => {
   if (product.quantity > 1) {
     const newQuantity = product.quantity - 1;
-    const newStock = product.stock + 1;
-
-    dispatch(
-      addToCart({ ...product, quantity: newQuantity, stock: newStock })
-    );
-
-    // Simpan ke localStorage
+    dispatch(addToCart({ ...product, quantity: newQuantity }));
     localStorage.setItem(`quantity-${product.id}`, JSON.stringify(newQuantity));
-    localStorage.setItem(`stock-${product.id}`, JSON.stringify(newStock));
-
-    setError(''); // Reset error
   } else {
-    const errorMessage = "Minimum quantity is 1";
-    setError(errorMessage);
+    setError("Minimum quantity is 1");
+    setTimeout(() => {
+      setError('')
+    }, 2000)
   }
 };
 
 //handle confirm page
 const handleConfirm = () => {
-  navigate('/confirm')
-}
+  cartItems.forEach((item) => {
+    const stockFromLocalStorage = localStorage.getItem(`stock-${item.id}`);
+    const quantityFromLocalStorage = localStorage.getItem(`quantity-${item.id}`);
+    const newStock = JSON.parse(stockFromLocalStorage) - JSON.parse(quantityFromLocalStorage);
+    localStorage.setItem(`stock-${item.id}`, JSON.stringify(newStock));
+  });
+  navigate('/confirm');
+};
 
   return (
     <div className="flex gap-6 mt-5">
@@ -105,20 +97,18 @@ const handleConfirm = () => {
                         <div className="bg-gray-100 rounded-full flex w-[130px] h-9 items-center">
                           <button
                             className="py-2 px-4 text-main-army fa-solid fa-minus"
-                            onClick={() => handleDecrement({ ...item, quantity: parsedQuantity, stock: parsedStock })}
-                            disabled={parsedQuantity <= 1}>
+                            onClick={() => handleDecrement({ ...item, quantity: parsedQuantity, stock: parsedStock })}>
                           </button>
                           <span className="py-2 px-4 text-main-army">{parsedQuantity}</span>
                           <button
                             className="py-2 px-4 text-main-army fa-solid fa-plus"
-                            onClick={() => handleIncrement({ ...item, quantity: parsedQuantity, stock : parsedStock })}
-                            disabled={parsedQuantity >= 20 || parsedStock <= 0}>
+                            onClick={() => handleIncrement({ ...item, quantity: parsedQuantity, stock : parsedStock })}>
                           </button>
                         </div>
                       </div>
                     </div>
                   </div>
-                  {error && <p className="text-red-500">{error}</p>}
+                  {error && <p className="text-red-500 text-right mr-6">{error}</p>}
                   <div className="border-b-2 border-gray-300 w-[40rem] my-10"></div>
                 </div>
               );

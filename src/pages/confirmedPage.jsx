@@ -12,9 +12,9 @@ function ConfirmedPage() {
 
   return (
     <div className='flex flex-col justify-around gap-9 items-center m-6'>
-        <div className='flex gap-2'>
+        <div className='flex gap-2 items-center'>
             <div className="text-main-army font-bold text-3xl text-center">CONFIRMED</div>
-            <i class="fa-solid fa-circle-check text-main-army"></i>
+            <i class="fa-solid fa-circle-check text-main-army fa-2xl"></i>
         </div>
         <div className='flex flex-col gap-2'>
             <h2 className="text-black font-bold text-xl text-center">THANK YOU FOR YOUR ORDER</h2>

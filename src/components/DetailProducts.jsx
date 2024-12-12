@@ -68,45 +68,25 @@ function DetailProducts() {
   }, [stock, localQuantity, id]);
 
 const handleAddQuantity = () => {
-  if (stock > 0 && localQuantity < 20) {
+  if (localQuantity < 20) {
     const newQuantity = localQuantity + 1;
-    const newStock = stock - 1;
-
     setLocalQuantity(newQuantity);
-    setStock(newStock);
-
-    // Simpan ke localStorage
     localStorage.setItem(`quantity-${id}`, JSON.stringify(newQuantity));
-    localStorage.setItem(`stock-${id}`, JSON.stringify(newStock));
-
-    dispatch(addingQuantity());
-    dispatch(reducingStock());
   } else {
-    setErrorMessage("Out of stock")
-
+    setErrorMessage("Maximum quantity reached");
     setTimeout(() => {
-      setErrorMessage('')
-    }, 2000)
+      setErrorMessage('');
+    }, 2000);
   }
 };
 
 const handleReduceQuantity = () => {
   if (localQuantity > 0) {
-    const newQuantity = localQuantity - 1; // Kurangi 1 dari kuantitas lokal
-    const newStock = stock + 1; // Tambahkan 1 ke stok
-
-    setLocalQuantity(newQuantity); // Perbarui kuantitas lokal
-    setStock(newStock); // Perbarui stok
-
-    // Simpan ke localStorage
-    localStorage.setItem(`quantity-${product.id}`, JSON.stringify(newQuantity));
-    localStorage.setItem(`stock-${product.id}`, JSON.stringify(newStock));
-
-    dispatch(reducingQuantity());
-    dispatch(addingStock());
+    const newQuantity = localQuantity - 1;
+    setLocalQuantity(newQuantity);
+    localStorage.setItem(`quantity-${id}`, JSON.stringify(newQuantity));
   } else {
-    setErrorMessage("Quantity is already zero");
-
+    setErrorMessage("Minimum quantity is 1");
     setTimeout(() => {
       setErrorMessage('');
     }, 2000);

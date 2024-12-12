@@ -87,10 +87,9 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
       );
 
       if (existingItemIndex !== -1) {
-        // Jika item sudah ada, perbarui kuantitas
         const updatedCartItems = state.cartItems.map((item, index) =>
           index === existingItemIndex
-            ? { ...item, quantity: item.quantity + action.payload.quantity, stock: action.payload.stock }
+            ? { ...item, quantity: action.payload.quantity }
             : item
         );
         return {
@@ -98,7 +97,6 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
           cartItems: updatedCartItems,
         };
       } else {
-        // Jika item belum ada, tambahkan ke keranjang
         return {
           ...state,
           cartItems: [...state.cartItems, { ...action.payload }],
