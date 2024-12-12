@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, useSearchParams } from "react-router-dom";
 import App from "../layouts/App";
 import About from "../pages/about";
 import Home from "../pages/home";
@@ -10,6 +10,7 @@ import LoginPage from "../pages/login.jsx";
 import ProductDetails from "../pages/productDetails.jsx";
 import SignUp from "../pages/signup.jsx";
 import ConfirmedPage from "../pages/confirmedPage.jsx";
+import SearchPage from "../pages/searchPage.jsx";
 
 const router = createBrowserRouter([
     {
@@ -55,7 +56,11 @@ const router = createBrowserRouter([
             {
                 path: "/confirm",
                 element: <ConfirmedPage/>
-            }
+            },
+            {
+                path: "/search",
+                element: <SearchPage/>
+            },
 
         ]
     }

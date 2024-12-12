@@ -57,7 +57,7 @@ function CardPictShop() {
     <>
       {isLoading ? (
         <div className="">
-          <img src={LoadingGif} alt="Loading..." className='m-[25rem]'/>
+          <img src={LoadingGif} alt="Loading..." className='my-44 mx-96'/>
         </div>
       ) : (
         renderList

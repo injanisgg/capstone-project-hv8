@@ -11,7 +11,7 @@ function ConfirmedPage() {
     }
 
   return (
-    <div className='flex flex-col justify-around gap-9 items-center m-6'>
+    <div className='flex flex-col justify-around gap-9 items-center m-28'>
         <div className='flex gap-2 items-center'>
             <div className="text-main-army font-bold text-3xl text-center">CONFIRMED</div>
             <i class="fa-solid fa-circle-check text-main-army fa-2xl"></i>

@@ -27,7 +27,7 @@ function Profile() {
   // menampilkan loading jika profile masih null
   if (!profile) {
     return <div className='flex justify-center'>
-              <img src={Loading} alt="Loading..." className='text-main-army' />
+              <img src={Loading} alt="Loading..." className='text-main-army my-48' />
           </div>;
   }
 

@@ -5,12 +5,16 @@ const initialState = {
     product: [], // Menyimpan hasil pencarian
 };
 
-export const searchReducer = (state = initialState, { type, payload }) => {
+export const SearchReducer = (state = initialState, { type, payload }) => {
     switch (type) {
         case ActionsTypes.SET_SEARCH:
-            return { ...state, product: payload };// Menyimpan hasil pencarian ke dalam state
+    console.log('Setting search with payload:', payload);
+    return { ...state, product: payload };
+
+        case ActionsTypes.RESET_SEARCH:
+            return { ...state, product: [] };
 
         default:
-            return state; // Selalu kembalikan state default jika tidak ada aksi yang cocok
+            return state;
     }
 };
