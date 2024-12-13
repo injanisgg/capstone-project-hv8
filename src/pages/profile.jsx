@@ -8,6 +8,7 @@ function Profile() {
 
   //state profile
   const [ profile, setProfile ] = useState(null)
+  const [ gender, setGender ] = useState('Female')
 
   //fetching profile no 10
   useEffect(() => {
@@ -71,29 +72,66 @@ function Profile() {
       <div className="flex flex-col gap-7">
         <span className='flex flex-col'>
           <label htmlFor="" className='text-main-army font-bold'>Full Name</label>
-          <input type="text" name="" id="" placeholder='Your full name' className='form-input w-[30rem] bg-gray-100 rounded-lg py-3 pl-5 pr-4 text-gray-500 placeholder-gray-500 border border-gray-400'/>
+          <input 
+          type="text" 
+          name="" 
+          id="" 
+          placeholder='Your full name' 
+          value={`${capitalize(profile.name.firstname)} ${capitalize(profile.name.lastname)}`}
+          className={`form-input w-[30rem] bg-gray-100 rounded-lg py-3 pl-5 pr-4 ${profile.name.firstname && profile.name.lastname ? 'text-black' : 'text-gray-500'} placeholder-gray-500 border border-gray-400`}/>
         </span>
         <span className='flex flex-col'>
           <label htmlFor="" className='text-main-army font-bold'>Email</label>
-          <input type="email" name="" id="" placeholder='Your email' className='form-input w-[30rem] bg-gray-100 rounded-lg py-3 pl-5 pr-4 text-gray-500 placeholder-gray-500 border border-gray-400'/>
+          <input 
+          type="email" 
+          name="" 
+          id="" 
+          placeholder='Your email' 
+          value={`${profile.email}`}
+          className={`form-input w-[30rem] bg-gray-100 rounded-lg py-3 pl-5 pr-4 ${profile.email ? 'text-black' : 'text-gray-500'} placeholder-gray-500 border border-gray-400`}/>
         </span>
         <span className='flex flex-col'>
           <label htmlFor="" className='text-main-army font-bold'>Gender</label>
-          <input type="text" name="" id="" placeholder='Your Gender' className='form-input w-[30rem] bg-gray-100 rounded-lg py-3 pl-5 pr-4 text-gray-500 placeholder-gray-500 border border-gray-400'/>
+          <input 
+          type="text" 
+          name="" 
+          id="" 
+          placeholder='Your Gender' 
+          value={gender}
+          onChange={(e) => setGender(e.target.value)}
+          className={`form-input w-[30rem] bg-gray-100 rounded-lg py-3 pl-5 pr-4 ${gender ? 'text-black' : 'text-gray-500'} placeholder-gray-500 border border-gray-400`}/>
         </span>
       </div>
       <div className="flex flex-col gap-7">
         <span className='flex flex-col'>
           <label htmlFor="" className='text-main-army font-bold'>Phone</label>
-          <input type="text" name="" id="" placeholder='Your Phone Number' className='form-input w-[30rem] bg-gray-100 rounded-lg py-3 pl-5 pr-4 text-gray-500 placeholder-gray-500 border border-gray-400'/>
+          <input 
+          type="text" 
+          name="" 
+          id="" 
+          placeholder='Your Phone Number' 
+          value={`${profile.phone}`}
+          className={`form-input w-[30rem] bg-gray-100 rounded-lg py-3 pl-5 pr-4 ${profile.phone ? 'text-black' : 'text-gray-500'} placeholder-gray-500 border border-gray-400`}/>
         </span>
         <span className='flex flex-col'>
           <label htmlFor="" className='text-main-army font-bold'>Username</label>
-          <input type="text" name="" id="" placeholder='Your username' className='form-input w-[30rem] bg-gray-100 rounded-lg py-3 pl-5 pr-4 text-gray-500 placeholder-gray-500 border border-gray-400'/>
+          <input 
+          type="text" 
+          name="" 
+          id="" 
+          placeholder='Your username' 
+          value={`${profile.username}`}
+          className={`form-input w-[30rem] bg-gray-100 rounded-lg py-3 pl-5 pr-4 ${profile.username ? 'text-black' : 'text-gray-500'} placeholder-gray-500 border border-gray-400`}/>
         </span>
         <span className='flex flex-col'>
           <label htmlFor="" className='text-main-army font-bold'>Password</label>
-          <input type="password" name="" id="" placeholder='Your password' className='form-input w-[30rem] bg-gray-100 rounded-lg py-3 pl-5 pr-4 text-gray-500 placeholder-gray-500 border border-gray-400'/>
+          <input 
+          type="password" 
+          name="" 
+          id="" 
+          placeholder='Your password' 
+          value={`${profile.password}`}
+          className={`form-input w-[30rem] bg-gray-100 rounded-lg py-3 pl-5 pr-4 ${profile.password ? 'text-black' : 'text-gray-500'} placeholder-gray-500 border border-gray-400`}/>
         </span>
       </div>
       <div className="flex flex-col">
@@ -101,6 +139,7 @@ function Profile() {
         <textarea 
           className="top-0 left-0 w-96 h-64 bg-gray-100 rounded-lg p-5 text-gray-700 placeholder-gray-500 border border-gray-400 resize-none" 
           placeholder="Your Address"
+          value={`${capitalize(profile.address.city)} city, ${capitalize(profile.address.street)} street, ${profile.address.number}, ${profile.address.zipcode}`}
         />
       </div>
     </form>

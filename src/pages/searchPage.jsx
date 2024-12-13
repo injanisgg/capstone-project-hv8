@@ -1,47 +1,32 @@
-import React, { useEffect, useState } from "react";
+// /home/fordevgg/capstone/src/pages/searchPage.jsx
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchProduct } from "../redux/actions/search-actions";
+import { searchProducts } from "../redux/actions/search-actions";
 import renderStars from "../redux/actions/render-stars";
-import { useNavigate } from "react-router-dom";
-import Search from "../components/Search";
+import { useNavigate, useLocation } from "react-router-dom";
+
+
+// Fungsi untuk mengambil parameter query dari URL saat ini.
+function useQuery() {
+    return new URLSearchParams(useLocation().search);
+}
 
 function SearchPage() {
     const dispatch = useDispatch();
     const allProducts = useSelector((state) => state.search.product);
-    const [query, setQuery] = useState('');
-    const [filteredProducts, setFilteredProducts] = useState([]);
+    const query = useQuery().get("query"); // Ambil query dari URL
     const navigate = useNavigate();
 
-    // Ambil semua produk saat komponen dimuat
-    useEffect(() => {
-        dispatch(fetchProduct());
-    }, [dispatch]);
-
-    // Filter produk berdasarkan query
+    // Lakukan pencarian berdasarkan query
     useEffect(() => {
         if (query) {
-            const filtered = allProducts.filter(product =>
-                product.title.toLowerCase().includes(query.toLowerCase())
-            );
-            setFilteredProducts(filtered);
-        } else {
-            setFilteredProducts(allProducts);
+            dispatch(searchProducts(query)); // Panggil action pencarian dengan query
         }
-    }, [query, allProducts]);
-
-    // Fungsi untuk menangani pencarian dari komponen Search
-    const handleSearch = (searchQuery) => {
-        console.log("Search query received:", searchQuery);
-        setQuery(searchQuery);
-    };
-
-    const handleRedirect = (productId) => {
-        navigate(`/product/${productId}`);
-    };
+    }, [query, dispatch]);
 
     // Render produk yang difilter
-    const renderList = filteredProducts.length > 0 ? (
-        filteredProducts.map((item) => {
+    const renderList = allProducts.length > 0 ? (
+        allProducts.map((item) => {
             const { id, title, image, category, price, rating: { rate } } = item;
             const truncatedTitle = title.length > 20 ? `${title.substring(0, 20)}...` : title;
 
@@ -49,8 +34,7 @@ function SearchPage() {
                 <div 
                     key={id} 
                     className="flex flex-col gap-3 border-0 hover:border-2 border-main-army rounded-3xl ease-in-out cursor-pointer w-64"
-                    onClick={() => handleRedirect(id)}
-                >
+                    onClick={() => handleRedirect(id)}>
                     <div className="bg-white rounded-3xl overflow-hidden">
                         <div className="relative p-8 w-64 h-72">
                             <img 
@@ -64,41 +48,26 @@ function SearchPage() {
                         <div className="text-black bg-landing py-1 px-2 rounded-lg w-fit">
                             {category}
                         </div>
-                        <div className="text-main-army font-bold text-lg">
-                            {truncatedTitle}
-                        </div>
-                        <div className="flex gap-1 items-center">
-                            <span className="flex gap-1">{renderStars(rate)}</span>
-                            <span className="text-main-army text-sm font-light">{rate}</span>
-                        </div>
-                        <div className="text-main-army font-bold text-md">
-                            $ {price}
-                        </div>
-                        <button className="rounded-3xl w-42 bg-main-yellow h-10 font-semibold">
-                            Add to cart
-                        </button>
+                        <div class ="text-lg font-semibold">{truncatedTitle}</div>
+                        <div className="text-main-army font-bold">${price}</div>
+                        <div>{renderStars(rate)}</div>
+                        <button className="rounded-3xl w-42 bg-main-yellow h-10 font-semibold">Add to cart</button>
                     </div>
                 </div>
             );
         })
     ) : (
-        <p className="text-main-army font-bold text-center">
-            Tidak ada hasil pencarian
-        </p>
+        <p className="text-main-army font-extrabold text-2xl leading-tight col-start-2 my-5">No products found😓</p>
     );
 
+    const handleRedirect = (id) => {
+        navigate(`/shop/${id}`);
+    };
+
     return (
-        <div className='flex flex-col justify-center items-center mb-6'>
-            {/* Komponen Search dengan prop onSearch */}
-            <Search onSearch={handleSearch} />
-            
-            {query && (
-                <h1 className='text-main-army font-extrabold text-4xl leading-tight text-center my-5'>
-                    Hasil untuk "{query}"
-                </h1>
-            )}
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12">
+        <div className="flex flex-col items-center">
+            <h1 className='text-main-army font-extrabold text-4xl leading-tight text-center my-5'>Result for {query}</h1>
+            <div className="grid grid-cols-3 gap-4 mt-4">
                 {renderList}
             </div>
         </div>
