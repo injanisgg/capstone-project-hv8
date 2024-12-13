@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import HeadProfile from '../img/header-profile.png'
 import Zee from '../img/zee.jpeg'
 import Loading from '../img/loading.gif'
 import axios from 'axios'
@@ -49,10 +48,9 @@ function Profile() {
   }
 
   return (
-    <>
+    <div className='mt-36'>
     {/*header*/}
     <header>
-      <img src={HeadProfile} alt="img" className='w-full h-12'/>
       <div className='flex justify-between mx-20 my-5 items-center'>
         <div className="flex gap-5 items-center">
           <div className="shadow-md rounded-full overflow-hidden">
@@ -150,7 +148,7 @@ function Profile() {
       </div>
     </form>
     {/*end of form profile*/}
-    </>
+    </div>
   )
 }
 

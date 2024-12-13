@@ -5,10 +5,19 @@ import { useNavigate } from 'react-router-dom';
 import LoadingGif from '../img/loading.gif'; 
 
 function CardPictShop() {
+  const products = useSelector((state) => state.allProducts.products);
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
+  const isLogin = localStorage.getItem('authToken');
 
-  const products = useSelector((state) => state.allProducts.products);
+  //handle login 
+  const handleRedirectLogin = () => {
+    if(!isLogin){
+      navigate('/signup')
+    } else {
+      navigate('/shop/id:')
+    }
+  }
 
   const handleRedirect = (id) => {
     navigate(`/shop/${id}`);
@@ -32,9 +41,8 @@ function CardPictShop() {
       <div
         className="flex flex-col gap-3 border-0 hover:border-2 border-main-army rounded-3xl ease-in-out cursor-pointer"
         key={id}
-        onClick={() => handleRedirect(id)}
       >
-        <div className="bg-white rounded-3xl overflow-hidden">
+        <div className="bg-white rounded-3xl overflow-hidden" onClick={() => handleRedirect(id)}>
           <div className="relative p-8 w-64 h-72">
             <img src={image} className="w-full h-full object-contain" alt={title} />
           </div>
@@ -47,7 +55,7 @@ function CardPictShop() {
             <span className="text-main-army text-sm font-light">{rate}</span>
           </div>
           <div className="text-main-army font-bold text-md">$ {price}</div>
-          <button className="rounded-3xl w-42 bg-main-yellow h-10 font-semibold">Add to cart</button>
+          <button className="rounded-3xl w-42 bg-main-yellow h-10 font-semibold" onClick={handleRedirectLogin}>Add to cart</button>
         </div>
       </div>
     );
@@ -56,7 +64,7 @@ function CardPictShop() {
   return (
     <>
       {isLoading ? (
-        <div className="">
+        <div>
           <img src={LoadingGif} alt="Loading..." className='my-44 mx-96'/>
         </div>
       ) : (

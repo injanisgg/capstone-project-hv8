@@ -8,7 +8,7 @@ import Category from '../components/Category';
 function Home() {
 
   return (
-    <div>
+    <div className='mt-28'>
       <LandingPage/>
       <Category headTitle={'NEW ARRIVALS'} categoryProduct={"men's clothing"}/>
       <Category headTitle={'TOP SELLING'} categoryProduct={"jewelery"}/>

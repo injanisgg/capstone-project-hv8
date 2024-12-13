@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import CardPicture from './CardPicture';
 import renderStars from '../redux/actions/render-stars';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -21,6 +21,8 @@ function DetailProducts() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const error = useSelector((state) => state.error.error)
+  const isLogin = localStorage.getItem('authToken');
+  const navigate = useNavigate();
 
   const stockFromLocalStorage = localStorage.getItem(`stock-${id}`);
   const quantityFromLocalStorage = localStorage.getItem(`quantity-${id}`);
@@ -41,6 +43,16 @@ function DetailProducts() {
     price = 0,
     rating: { rate = 0 } = {},
   } = product;
+
+
+  //handle redirect to login 
+  const handleRedirectLogin = () => {
+    if(isLogin){
+      handleAddToCart();
+    } else{
+      navigate('/signup')
+    }
+  }
 
   // Fetch product details
   const fetchProductDetails = async () => {
@@ -125,9 +137,9 @@ const handleAddToCart = () => {
 
   return (
     <>
-      <div className="flex gap-10 mt-10 ml-20">
+      <div className="flex gap-10 mt-32 ml-20">
         {Object.keys(product).length === 0 ? (
-            <div className='flex items-center ml-[30rem]'>
+            <div className='flex items-center ml-[34rem]'>
                 <img src={Loading} alt="Loading..." className='text-main-army' />
             </div>
         ) : (
@@ -187,7 +199,7 @@ const handleAddToCart = () => {
                     className="py-2 px-4 text-main-army fa-solid fa-plus"
                     onClick={handleAddQuantity}></button>
                 </div>
-                <button className="rounded-3xl w-96 bg-main-yellow h-10 font-semibold" onClick={handleAddToCart}>
+                <button className="rounded-3xl w-96 bg-main-yellow h-10 font-semibold" onClick={handleAddToCart && handleRedirectLogin}>
                   Add to cart
                 </button>
                </div>

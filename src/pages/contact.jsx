@@ -3,7 +3,7 @@ import Winter from '../img/winter.png'
 
 function Contact() {
   return (
-    <div className='flex gap-5'>
+    <div className='flex gap-5 mt-28'>
       <div className='flex flex-col justify-center items-center my-10 mx-72'>
         <form className='flex flex-col gap-5'>
           <h2 className='text-main-army font-extrabold text-2xl leading-tight'>Contact Us!</h2>

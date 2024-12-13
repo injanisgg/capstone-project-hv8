@@ -62,7 +62,7 @@ const handleConfirm = () => {
 };
 
   return (
-    <div className="flex gap-6 pt-12">
+    <div className="flex gap-6 mt-40">
       {cartItems.length === 0 ? (
         <div className="text-main-army font-bold text-3xl text-center mx-[38rem] my-72">Your Cart is Empty 😓</div>
       ) : (
@@ -117,7 +117,7 @@ const handleConfirm = () => {
           </div>
           {/*end of cart item*/}
           {/* Summary price */}
-          <div className='bg-white shadow-md rounded-2xl overflow-hidden px-4 py-4 border border-slate-200 w-[600px] h-[550px] mr-20 px-7'>
+          <div className='bg-white shadow-md rounded-2xl overflow-hidden py-4 border border-slate-200 w-[600px] h-[550px] mr-20 px-7'>
             <div className='relative'>
                 <div className='flex flex-col gap-5'>
                     <h2 className="text-main-army font-3xl font-bold">Order Summary</h2>

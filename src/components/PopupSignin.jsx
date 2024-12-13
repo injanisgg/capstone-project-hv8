@@ -8,7 +8,7 @@ function PopupSignin() {
     }
 
     return (
-        <div className="bg-main-army py-2 text-white flex gap-5 justify-center" onClick={handleRedirect}>
+        <div className="bg-main-army py-2 text-white flex gap-5 justify-center fixed top-24 left-0 right-0 z-20 mb-6" onClick={handleRedirect}>
             <span>Sign up and get 20% off to your first order.</span>
             <span className="underline cursor-pointer" onClick={(e) => {
                 e.stopPropagation(); // Mencegah `div` menangkap event klik

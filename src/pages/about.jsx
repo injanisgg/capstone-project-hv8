@@ -3,7 +3,7 @@ import Rose from '../img/rose.png'
 
 function About() {
   return (
-    <div className='flex gap-5'>
+    <div className='flex gap-5 mt-28'>
       <div className='flex flex-col justify-center items-center my-16 mx-52'>
         <h1 className="text-4xl text-main-army font-bold pr-[7rem] self-start">MON.CHÉRIE</h1>
         <div className='w-[34rem] my-6'>
