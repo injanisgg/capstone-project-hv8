@@ -12,11 +12,11 @@ function App() {
   const showPopupSignin = !isLoggedin && location.pathname !== '/login' &&  location.pathname !== '/signup';
 
   return (
-    <>
+    <div className="relative z-10 mt-28">
       {showPopupSignin && <PopupSignin />} {/* pop up yang muncul hanya ketika belum sign in atau login */}
       {showNavbar && <Navbar />} {/* Render Navbar hanya jika bukan di halaman login dan signin */}
       <Outlet/>
-    </>
+    </div>
   );
 }
 

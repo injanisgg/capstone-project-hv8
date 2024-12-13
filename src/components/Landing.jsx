@@ -8,7 +8,7 @@ import zara from '../img/zara.png'
 
 function LandingPage() {
   return (
-    <>
+    <div>
     {/* Top page */}
         <div className="bg-landing w-full h-[37.07rem] flex">
             <div className='gap-5 pt-16 pl-20 flex flex-col justify-evenly'>
@@ -53,7 +53,7 @@ function LandingPage() {
                 <li><img src={zara} alt="Zara" /></li>
             </ul>
         </div>
-    </>
+    </div>
   )
 }
 

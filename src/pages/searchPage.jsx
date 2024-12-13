@@ -1,12 +1,10 @@
-// /home/fordevgg/capstone/src/pages/searchPage.jsx
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react"; // Tambahkan useState
 import { useDispatch, useSelector } from "react-redux";
 import { searchProducts } from "../redux/actions/search-actions";
 import renderStars from "../redux/actions/render-stars";
 import { useNavigate, useLocation } from "react-router-dom";
+import Loading from '../img/loading.gif';
 
-
-// Fungsi untuk mengambil parameter query dari URL saat ini.
 function useQuery() {
     return new URLSearchParams(useLocation().search);
 }
@@ -14,17 +12,27 @@ function useQuery() {
 function SearchPage() {
     const dispatch = useDispatch();
     const allProducts = useSelector((state) => state.search.product);
-    const query = useQuery().get("query"); // Ambil query dari URL
+    const query = useQuery().get("query");
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(true); // Tambahkan state loading
 
-    // Lakukan pencarian berdasarkan query
     useEffect(() => {
         if (query) {
-            dispatch(searchProducts(query)); // Panggil action pencarian dengan query
+            setLoading(true); // Set loading menjadi true saat memulai pencarian
+            dispatch(searchProducts(query)).finally(() => {
+                setLoading(false); // Set loading menjadi false setelah pencarian selesai
+            });
         }
     }, [query, dispatch]);
 
-    // Render produk yang difilter
+    if (loading) { // Tampilkan loading jika loading true
+        return (
+            <div className='flex justify-center'>
+                <img src={Loading} alt="Loading..." className='text-main-army my-48' />
+            </div>
+        );
+    }
+
     const renderList = allProducts.length > 0 ? (
         allProducts.map((item) => {
             const { id, title, image, category, price, rating: { rate } } = item;
@@ -48,7 +56,7 @@ function SearchPage() {
                         <div className="text-black bg-landing py-1 px-2 rounded-lg w-fit">
                             {category}
                         </div>
-                        <div class ="text-lg font-semibold">{truncatedTitle}</div>
+                        <div className="text-lg font-semibold">{truncatedTitle}</div>
                         <div className="text-main-army font-bold">${price}</div>
                         <div>{renderStars(rate)}</div>
                         <button className="rounded-3xl w-42 bg-main-yellow h-10 font-semibold">Add to cart</button>

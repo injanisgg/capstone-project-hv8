@@ -9,6 +9,7 @@ function Profile() {
   //state profile
   const [ profile, setProfile ] = useState(null)
   const [ gender, setGender ] = useState('Female')
+  const [ eyeOn, setEyeOn ] = useState(true)
 
   //fetching profile no 10
   useEffect(() => {
@@ -40,6 +41,11 @@ function Profile() {
   //fungsi logout remove token localStorage
   const handleLogout = () => {
     localStorage.removeItem("authToken");
+  }
+
+  //handle icon eye
+  const handleEye = () => {
+    setEyeOn((prevStage) => !prevStage)
   }
 
   return (

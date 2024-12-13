@@ -62,7 +62,7 @@ const handleConfirm = () => {
 };
 
   return (
-    <div className="flex gap-6 mt-5">
+    <div className="flex gap-6 pt-12">
       {cartItems.length === 0 ? (
         <div className="text-main-army font-bold text-3xl text-center mx-[38rem] my-72">Your Cart is Empty 😓</div>
       ) : (

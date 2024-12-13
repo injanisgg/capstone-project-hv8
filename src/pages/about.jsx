@@ -29,9 +29,9 @@ function About() {
         </div>
       </div>
       </div>
-        <div className='pt-4 bg-landing h-max w-[542px] absolute right-0 pl-14'>
-          <div className='w-[441.5px]'>
-            <img src={Rose} alt="Rose Blackpink" />
+        <div className='overflow-hidden'>
+          <div className='relative'>
+            <img src={Rose} alt="Rose Blackpink" className='w-[479px]' />
           </div>
         </div>
     </div>

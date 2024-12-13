@@ -27,9 +27,9 @@ function Contact() {
           <button className="rounded-lg w-96 bg-main-yellow h-10 font-semibold">Send</button>
         </form>
       </div>
-        <div className='pt-4 bg-landing h-max w-[542px] absolute right-0 pl-14'>
-          <div className='w-[426px]'>
-            <img src={Winter} alt="Rose Blackpink" />
+        <div className='overflow-hidden'>
+          <div className='relative'>
+            <img src={Winter} alt="Winter aespa" className='w-[470.5px] object-cover'/>
           </div>
         </div>
     </div>
