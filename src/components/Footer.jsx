@@ -6,7 +6,7 @@ function Footer() {
       {/* Wrapper */}
       <div className="relative bg-landing w-full h-[32rem] pt-2">
         {/* Card army */}
-        <div className="absolute top-[-5rem] bg-main-army shadow-md rounded-2xl w-full max-w-7xl z-20 ml-[6rem]">
+        <div className="absolute top-[-5rem] bg-main-army shadow-md rounded-2xl w-full max-w-7xl z-20 mx-32">
           <div className="relative flex justify-between items-center px-10 py-8">
             <div>
               <div className="text-white font-bold text-4xl">STAY UP TO DATE ABOUT</div>

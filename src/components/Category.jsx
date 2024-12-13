@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import renderStars from '../redux/actions/render-stars';
 import axios from 'axios'; 
+import Loading from '../img/loading.gif'
 
 function Category({ headTitle, categoryProduct }) {
     const navigate = useNavigate();
     const [category, setCategory] = useState([]); 
     const isLogin = localStorage.getItem('authToken')
+    const [ loading, setLoading ] = useState(true)
 
     const handleRedirect = () => {
         if(!isLogin){
@@ -17,11 +19,14 @@ function Category({ headTitle, categoryProduct }) {
     };
 
     const fetchCategory = async () => {
+        setLoading(true)
         try {
             const response = await axios.get(`https://fakestoreapi.com/products/category/${categoryProduct}`);
             setCategory(response.data); 
         } catch (error) {
             console.error("Error fetching product category:", error);
+        } finally {
+            setLoading(false)
         }
     };
 
@@ -63,9 +68,15 @@ function Category({ headTitle, categoryProduct }) {
     return (
         <div className='flex flex-col justify-center items-center mb-6'>
             <h1 className='text-main-army font-extrabold text-4xl leading-tight text-center my-5'>{headTitle}</h1>
-            <div className="grid grid-cols-1 grid-rows-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12">
-                {renderList}
-            </div>
+            {loading ? (    
+                <div className='flex justify-center'>
+                    <img src={Loading} alt="Loading..." className='text-main-army my-48' />
+                </div>
+            ) : (
+                <div className="grid grid-cols-1 grid-rows-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12">
+                    {renderList}
+                </div>
+            )}
             <button className="rounded-3xl w-40 bg-slate-100 h-10 font-black mt-12 mb-4 border-0 border-main-army hover:border-2" onClick={handleRedirect}>View All</button>
             <div className="border-b-2 border-gray-300 mx-20 w-[1380px] mt-14"></div>
         </div>

@@ -26,7 +26,7 @@ function Shop() {
   }, []);
 
   return (
-    <div className='mt-36'>
+    <div className='pt-12'>
       <div className='flex gap-5 mx-16'>
         <FiltersBar />
         <div className="grid grid-cols-1 grid-rows-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">

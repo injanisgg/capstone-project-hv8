@@ -14,13 +14,13 @@ function SearchPage() {
     const allProducts = useSelector((state) => state.search.product);
     const query = useQuery().get("query");
     const navigate = useNavigate();
-    const [loading, setLoading] = useState(true); // Tambahkan state loading
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         if (query) {
             setLoading(true); // Set loading menjadi true saat memulai pencarian
             dispatch(searchProducts(query)).finally(() => {
-                setLoading(false); // Set loading menjadi false setelah pencarian selesai
+            setLoading(false); // Set loading menjadi false setelah pencarian selesai
             });
         }
     }, [query, dispatch]);
