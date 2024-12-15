@@ -73,7 +73,7 @@ function SearchPage() {
     };
 
     return (
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center mt-28">
             <h1 className='text-main-army font-extrabold text-4xl leading-tight text-center my-5'>Result for {query}</h1>
             <div className="grid grid-cols-3 gap-4 mt-4">
                 {renderList}
