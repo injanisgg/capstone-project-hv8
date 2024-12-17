@@ -13,7 +13,7 @@ function ReviewSection() {
     ]
 
   return (
-    <div>
+    <div className='container mx-auto'>
         <h1 className='text-main-army font-extrabold text-4xl leading-tight text-center my-5'>WHAT'S OUR CUSTOMERS SAYS</h1>
         <div className='mx-20 grid grid-cols-3 gap-4'>
             {reviews.map((item, index) => (

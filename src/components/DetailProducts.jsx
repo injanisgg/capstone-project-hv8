@@ -140,24 +140,24 @@ const handleAddToCart = () => {
       <div className="flex gap-10 mt-32 ml-20">
         {Object.keys(product).length === 0 ? (
             <div className='flex items-center ml-[34rem]'>
-                <img src={Loading} alt="Loading..." className='text-main-army' />
+                <img src={Loading} alt="Loading..." className='text-main-army md:mr-28' />
             </div>
         ) : (
           <>
             <div className="flex gap-5">
               <div className="flex flex-col justify-evenly">
                 {[image, image].map((img, index) => (
-                  <div key={index} className="mb-5 w-52">
+                  <div key={index} className="mb-5 w-52 md:w-36">
                     <CardPicture picture={img}/>
                   </div>
                 ))}
               </div>
-              <div className="w-[30rem]">
+              <div className="w-[30rem] md:w-80">
                 <CardPicture picture={image} />
               </div>
             </div>
             <div className="flex flex-col gap-2 my-2 mx-2">
-              <h1 className="text-main-army font-extrabold text-3xl leading-tight">{title}</h1>
+              <h1 className="text-main-army font-extrabold text-3xl md:text-2xl leading-tight">{title}</h1>
               <div className="flex gap-1 items-center">
                 <span className="flex gap-1">{renderStars(rate)}</span>
                 <span className="text-main-army text-sm font-light">{rate}</span>
@@ -199,7 +199,7 @@ const handleAddToCart = () => {
                     className="py-2 px-4 text-main-army fa-solid fa-plus"
                     onClick={handleAddQuantity}></button>
                 </div>
-                <button className="rounded-3xl w-96 bg-main-yellow h-10 font-semibold" onClick={handleAddToCart && handleRedirectLogin}>
+                <button className="rounded-3xl w-96 md:w-80 bg-main-yellow h-10 font-semibold" onClick={handleAddToCart && handleRedirectLogin}>
                   Add to cart
                 </button>
                </div>
@@ -209,7 +209,7 @@ const handleAddToCart = () => {
           </>
         )}
       </div>
-      <div className="border-b-2 border-gray-300 mx-20 w-[1380px] mt-14"></div>
+      <div className="border-b-2 border-gray-300 mx-20 w-[1380px] md:w-[1100px] mt-14"></div>
     </>
   );
 }

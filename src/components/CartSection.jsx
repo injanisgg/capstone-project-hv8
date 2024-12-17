@@ -62,11 +62,12 @@ const handleConfirm = () => {
 };
 
   return (
-    <div className="flex gap-6 mt-40">
+    <div className="container mx-auto">
+      <div className="flex gap-6 mt-40">
       {cartItems.length === 0 ? (
-        <div className="text-main-army font-bold text-3xl text-center mx-[38rem] my-72">Your Cart is Empty 😓</div>
+        <div className="text-main-army font-bold text-3xl justify-center mx-[38rem] md:mx-96 my-72 md:my-40">Your Cart is Empty 😓</div>
       ) : (
-        <>
+      <>
         {/* Cart item */}
           <div className="bg-white shadow-md rounded-2xl overflow-hidden px-4 py-4 border border-slate-200 w-[700px] ml-20 pl-7">
             <div className="relative">
@@ -81,18 +82,18 @@ const handleConfirm = () => {
               return (
                 <div key={item.id}>
                   <div className="flex gap-4 mt-4">
-                    <div className="h-40 max-w-40 mb-5">
+                    <div className="h-40 max-w-40 md:max-w-36 mb-5 md:mb-2">
                       <CardPicture picture={item.image} />
                     </div>
                     <div className="flex flex-col justify-around">
-                      <div className="flex gap-12 justify-between">
-                        <h2 className="text-main-army font-2xl font-bold w-96">{item.title}</h2>
+                      <div className="flex gap-12 md:gap-4 justify-between">
+                        <h2 className="text-main-army text-base md:text-base font-bold w-96 md:w-80">{item.title}</h2>
                         <i
-                          className="fa-solid fa-trash-can text-red-600"
+                          className="fa-solid fa-trash-can text-red-600 cursor-pointer"
                           onClick={() => handleRemoveItem(item.id)}
                         ></i>
                       </div>
-                      <div className="flex justify-between gap-12">
+                      <div className="flex justify-between gap-12 md:gap-6">
                         <span className="text-main-army font-bold font-2xl">${item.price}</span>
                         <div className="bg-gray-100 rounded-full flex w-[130px] h-9 items-center">
                           <button
@@ -109,7 +110,7 @@ const handleConfirm = () => {
                     </div>
                   </div>
                   {error && <p className="text-red-500 text-right mr-6">{error}</p>}
-                  <div className="border-b-2 border-gray-300 w-[40rem] my-10"></div>
+                  <div className="border-b-2 border-gray-300 w-[40rem] md:w-[32rem] my-10 md:my-5"></div>
                 </div>
               );
             })}
@@ -131,7 +132,7 @@ const handleConfirm = () => {
                         <span className='text-gray-500'>Shipping</span>
                         <span className='text-main-army font-bold'>$5.00</span>
                     </div>
-                    <div className="border-b-2 border-gray-300 w-[34rem] my-6"></div>
+                    <div className="border-b-2 border-gray-300 w-[34rem] md:w-[28rem] my-6"></div>
                     <div className='flex justify-between'>
                         <span className='text-main-army font-bold'>Totals</span>
                         <span className="text-main-army font-bold">
@@ -139,23 +140,24 @@ const handleConfirm = () => {
                         </span>
                     </div>
                     <div className='flex items-center'>
-                        <div className="relative w-96">
+                        <div className="relative w-96 md:w-72">
                             <input
                             type="text"
-                            className="form-input w-full bg-gray-100 rounded-3xl py-3 pl-12 pr-4 text-gray-700 placeholder-gray-500"
+                            className="form-input w-full bg-gray-100 rounded-3xl py-3 md:py-2 pl-12 pr-4 text-gray-700 placeholder-gray-500"
                             placeholder="Add promo code"
                             />
-                            <i className="fa-solid fa-tag fa-xl absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
+                            <i className="fa-solid fa-tag fa-xl md:fa-xs absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
                         </div>
-                        <button className="rounded-3xl bg-main-yellow w-56 h-12 font-semibold ml-2 my-4">Apply</button>
+                        <button className="rounded-3xl bg-main-yellow w-56 md:w-48 h-12 md:h-10 font-semibold ml-2 my-4">Apply</button>
                     </div>
-                    <button className="rounded-3xl bg-main-yellow w-[530px] h-12 font-semibold ml-2 my-4" onClick={handleConfirm}>Check Out</button>
+                    <button className="rounded-3xl bg-main-yellow w-[530px] md:w-[430px] h-12 md:h-10 font-semibold ml-2 my-4" onClick={handleConfirm}>Check Out</button>
                 </div>
             </div>
           </div>
           {/* End of summary price */}
-        </>
+      </>
       )}
+    </div>
     </div>
   );
 }

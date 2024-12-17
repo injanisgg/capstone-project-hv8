@@ -2,9 +2,9 @@ import React from 'react';
 
 function Footer() {
   return (
-    <div  className='mt-40'>
+    <div  className='container mt-40'>
       {/* Wrapper */}
-      <div className="relative bg-landing w-full h-[34rem] md:h-25rem pt-2">
+      <div className="relative bg-landing w-full h-[34rem] md:w-full pt-2">
         {/* Card army */}
         <div className="absolute top-[-5rem] bg-main-army shadow-md rounded-2xl w-full max-w-7xl md:max-w-5xl z-20 mx-32">
           <div className="relative flex justify-between items-center px-10 py-8">
@@ -33,64 +33,64 @@ function Footer() {
           <div className="flex justify-around mx-12 pt-20">
             {/* Content */}
             <div className="flex flex-col gap-5">
-              <h1 className="text-3xl font-bold pr-[8rem] text-main-army">MON.CHÉRIE</h1>
+              <h1 className="text-3xl md:text-2xl font-bold pr-[8rem] text-main-army">MON.CHÉRIE</h1>
               <div className="flex flex-col">
-                <span className="text-gray-500">We have clothes that suits your style and</span>
-                <span className="text-gray-500">which you're proud to wear. From</span>
-                <span className="text-gray-500">women to men</span>
+                <span className="text-gray-500 text-sm">We have clothes that suits your style and</span>
+                <span className="text-gray-500 text-sm">which you're proud to wear. From</span>
+                <span className="text-gray-500 text-sm">women to men</span>
               </div>
               <ul className="flex gap-4 mt-4">
                 <li>
-                  <i className="fa-brands fa-twitter text-main-army fa-2x"></i>
+                  <i className="fa-brands fa-twitter text-main-army fa-2xl md:fa-lg"></i>
                 </li>
                 <li>
-                  <i className="fa-brands fa-instagram text-main-army fa-2x"></i>
+                  <i className="fa-brands fa-instagram text-main-army fa-2xl md:fa-lg"></i>
                 </li>
                 <li>
-                  <i className="fa-brands fa-facebook text-main-army fa-2x"></i>
+                  <i className="fa-brands fa-facebook text-main-army fa-2xl md:fa-lg"></i>
                 </li>
                 <li>
-                  <i className="fa-brands fa-github text-main-army fa-2x"></i>
+                  <i className="fa-brands fa-github text-main-army fa-2xl md:fa-lg"></i>
                 </li>
               </ul>
             </div>
 
             {/* Detail sections */}
             <div className="flex flex-col gap-5">
-              <h1 className="text-lg text-main-army">COMPANY</h1>
-              <span className="text-gray-500">About</span>
-              <span className="text-gray-500">Features</span>
-              <span className="text-gray-500">Work</span>
-              <span className="text-gray-500">Career</span>
+              <h1 className="text-lg md:text-sm text-main-army">COMPANY</h1>
+              <span className="text-gray-500 md:text-sm">About</span>
+              <span className="text-gray-500 md:text-sm">Features</span>
+              <span className="text-gray-500 md:text-sm">Work</span>
+              <span className="text-gray-500 md:text-sm">Career</span>
             </div>
             <div className="flex flex-col gap-5">
-              <h1 className="text-lg text-main-army">HELP</h1>
-              <span className="text-gray-500">Customer Support</span>
-              <span className="text-gray-500">Delivery Details</span>
-              <span className="text-gray-500">Terms & Conditions</span>
-              <span className="text-gray-500">Privacy Policy</span>
+              <h1 className="text-lg md:text-sm text-main-army">HELP</h1>
+              <span className="text-gray-500 md:text-sm">Customer Support</span>
+              <span className="text-gray-500 md:text-sm">Delivery Details</span>
+              <span className="text-gray-500 md:text-sm">Terms & Conditions</span>
+              <span className="text-gray-500 md:text-sm">Privacy Policy</span>
             </div>
             <div className="flex flex-col gap-5">
-              <h1 className="text-lg text-main-army">FAQ</h1>
-              <span className="text-gray-500">Account</span>
-              <span className="text-gray-500">Manage Deliveries</span>
-              <span className="text-gray-500">Orders</span>
-              <span className="text-gray-500">Payments</span>
+              <h1 className="text-lg md:text-sm text-main-army">FAQ</h1>
+              <span className="text-gray-500 md:text-sm">Account</span>
+              <span className="text-gray-500 md:text-sm">Manage Deliveries</span>
+              <span className="text-gray-500 md:text-sm">Orders</span>
+              <span className="text-gray-500 md:text-sm">Payments</span>
             </div>
             <div className="flex flex-col gap-5">
-              <h1 className="text-lg text-main-army">RESOURCES</h1>
-              <span className="text-gray-500">Free eBooks</span>
-              <span className="text-gray-500">Development Tutorial</span>
-              <span className="text-gray-500">How to Blog</span>
-              <span className="text-gray-500">YouTube</span>
+              <h1 className="text-lg md:text-sm text-main-army">RESOURCES</h1>
+              <span className="text-gray-500 md:text-sm">Free eBooks</span>
+              <span className="text-gray-500 md:text-sm">Development Tutorial</span>
+              <span className="text-gray-500 md:text-sm">How to Blog</span>
+              <span className="text-gray-500 md:text-sm">YouTube</span>
             </div>
           </div>
-          <div className="border-b-2 border-gray-300 mx-20 w-[1380px] md:w-[1100px] mt-14"></div>
+          <div className="border-b-2 border-gray-300 mx-20 w-[1380px] md:w-[1060px] mt-14"></div>
           <div className="flex flex-col gap-0">
-            <p className="text-gray-500 mt-4 ml-28">
+            <p className="text-gray-500 mt-4 ml-28 md:text-sm md:ml-20">
               Design by Hamzah Naeem
             </p>
-            <p className="text-gray-500 mt-4 ml-28">
+            <p className="text-gray-500 mt-4 ml-28 md:text-sm md:ml-20">
               Mon.Chérie &#169; 2024, Capstone Project at Hacktiv8
             </p>
           </div>
