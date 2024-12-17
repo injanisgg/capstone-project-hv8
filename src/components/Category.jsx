@@ -78,7 +78,7 @@ function Category({ headTitle, categoryProduct }) {
                 </div>
             )}
             <button className="rounded-3xl w-40 bg-slate-100 h-10 font-black mt-12 mb-4 border-0 border-main-army hover:border-2" onClick={handleRedirect}>View All</button>
-            <div className="border-b-2 border-gray-300 mx-20 w-[1380px] mt-14"></div>
+            <div className="border-b-2 border-gray-300 mx-20 w-[1380px] md:w-[1200px] mt-14"></div>
         </div>
     );  
 }

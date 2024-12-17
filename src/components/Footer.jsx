@@ -4,9 +4,9 @@ function Footer() {
   return (
     <div  className='mt-40'>
       {/* Wrapper */}
-      <div className="relative bg-landing w-full h-[34rem] pt-2">
+      <div className="relative bg-landing w-full h-[34rem] md:h-25rem pt-2">
         {/* Card army */}
-        <div className="absolute top-[-5rem] bg-main-army shadow-md rounded-2xl w-full max-w-7xl z-20 mx-32">
+        <div className="absolute top-[-5rem] bg-main-army shadow-md rounded-2xl w-full max-w-7xl md:max-w-5xl z-20 mx-32">
           <div className="relative flex justify-between items-center px-10 py-8">
             <div>
               <div className="text-white font-bold text-4xl">STAY UP TO DATE ABOUT</div>
@@ -85,7 +85,7 @@ function Footer() {
               <span className="text-gray-500">YouTube</span>
             </div>
           </div>
-          <div className="border-b-2 border-gray-300 mx-20 w-[1380px] mt-14"></div>
+          <div className="border-b-2 border-gray-300 mx-20 w-[1380px] md:w-[1100px] mt-14"></div>
           <div className="flex flex-col gap-0">
             <p className="text-gray-500 mt-4 ml-28">
               Design by Hamzah Naeem

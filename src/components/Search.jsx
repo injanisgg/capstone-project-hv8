@@ -19,18 +19,20 @@ function Search() {
   };
 
   return (
-    <form onSubmit={handleSearch} className="relative w-96">
-      <input
-        type="text"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        className="form-input w-full bg-gray-100 rounded-full py-2 pl-10 pr-4 text-gray-700 placeholder-gray-500 focus:outline-none"
-        placeholder="Search for products..."
-      />
-      <button type="submit" className="absolute right-0 top-0 mt-2 mr-4">
-        <i className="fa fa-search text-gray-500"></i>
-      </button>
-    </form>
+    <div className="container mx-auto">
+      <form onSubmit={handleSearch} className="relative md:w-92">
+        <input
+          type="text"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          className="form-input w-full bg-gray-100 rounded-full py-2 pl-10 pr-4 text-gray-700 placeholder-gray-500 focus:outline-none"
+          placeholder="Search for products..."
+        />
+        <button type="submit" className="absolute right-0 top-0 mt-2 mr-4">
+          <i className="fa fa-search text-gray-500"></i>
+        </button>
+      </form>
+    </div>
   );
 }
 
