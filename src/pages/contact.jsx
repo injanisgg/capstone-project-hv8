@@ -30,7 +30,7 @@ function Contact() {
         </div>
           <div className='overflow-hidden'>
             <div className='relative'>
-              <img src={Winter} alt="Winter aespa" className='xl:w-[350px] lg:w-[362px]'/>
+              <img src={Winter} alt="Winter aespa" className='xl:w-[470px] lg:w-[362px]'/>
             </div>
           </div>
       </div>

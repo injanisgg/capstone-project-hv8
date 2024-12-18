@@ -32,7 +32,7 @@ function About() {
       </div>
         <div className='overflow-hidden'>
           <div className='relative'>
-            <img src={Rose} alt="Rose Blackpink" className='xl:w-[479px] lg:w-[300px] lg:pt-[5.7rem]' />
+            <img src={Rose} alt="Rose Blackpink" className='xl:w-[410px] lg:w-[300px] lg:pt-[5.7rem]' />
           </div>
         </div>
     </div>
