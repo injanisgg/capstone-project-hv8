@@ -65,7 +65,7 @@ const handleConfirm = () => {
     <div className="">
       <div className="flex gap-6 mt-40">
       {cartItems.length === 0 ? (
-        <div className="text-main-army font-bold text-3xl justify-center xl:mx-[36rem] lg:mx-[28rem] xl:my-60 lg:my-40">Your Cart is Empty 😓</div>
+        <div className="text-main-army font-bold text-3xl justify-center lg:mx-[36rem] xl:mx-[28rem] lg:my-60 xl:my-40">Your Cart is Empty 😓</div>
       ) : (
       <>
         {/* Cart item */}
@@ -82,18 +82,18 @@ const handleConfirm = () => {
               return (
                 <div key={item.id}>
                   <div className="flex gap-4 mt-4">
-                    <div className="h-40 xl:w-40 lg:w-36 xl:mb-5 lg:mb-2">
+                    <div className="h-40 lg:w-40 xl:w-36 lg:mb-5 xl:mb-2">
                       <CardPicture picture={item.image} />
                     </div>
                     <div className="flex flex-col justify-around">
-                      <div className="flex xl:gap-12 lg:gap-4 justify-between">
-                        <h2 className="text-main-army text-base lg:text-base font-bold xl:w-96 lg:w-80">{item.title}</h2>
+                      <div className="flex lg:gap-12 xl:gap-4 justify-between">
+                        <h2 className="text-main-army text-base lg:text-base font-bold lg:w-96 xl:w-80">{item.title}</h2>
                         <i
                           className="fa-solid fa-trash-can text-red-600 cursor-pointer"
                           onClick={() => handleRemoveItem(item.id)}
                         ></i>
                       </div>
-                      <div className="flex justify-between xl:gap-12 lg:gap-6">
+                      <div className="flex justify-between lg:gap-12 xl:gap-6">
                         <span className="text-main-army font-bold font-2xl">${item.price}</span>
                         <div className="bg-gray-100 rounded-full flex w-[130px] h-9 items-center">
                           <button
@@ -110,7 +110,7 @@ const handleConfirm = () => {
                     </div>
                   </div>
                   {error && <p className="text-red-500 text-right mr-6">{error}</p>}
-                  <div className="border-b-2 border-gray-300 xl:w-[40rem] lg:w-[32rem] xl:my-10 lg:my-5"></div>
+                  <div className="border-b-2 border-gray-300 lg:w-[40rem] xl:w-[32rem] lg:my-10 xl:my-5"></div>
                 </div>
               );
             })}
@@ -132,7 +132,7 @@ const handleConfirm = () => {
                         <span className='text-gray-500'>Shipping</span>
                         <span className='text-main-army font-bold'>$5.00</span>
                     </div>
-                    <div className="border-b-2 border-gray-300 xl:w-[34rem] lg:w-[26.5rem] my-6"></div>
+                    <div className="border-b-2 border-gray-300 lg:w-[34rem] xl:w-[26.5rem] my-6"></div>
                     <div className='flex justify-between'>
                         <span className='text-main-army font-bold'>Totals</span>
                         <span className="text-main-army font-bold">
@@ -140,17 +140,17 @@ const handleConfirm = () => {
                         </span>
                     </div>
                     <div className='flex items-center'>
-                        <div className="relative xl:w-96 lg:w-72">
+                        <div className="relative lg:w-96 xl:w-72">
                             <input
                             type="text"
                             className="form-input w-full bg-gray-100 rounded-3xl py-3 md:py-2 pl-12 pr-4 text-gray-700 placeholder-gray-500"
                             placeholder="Add promo code"
                             />
-                            <i className="fa-solid fa-tag xl:fa-xl lg:fa-xs absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
+                            <i className="fa-solid fa-tag lg:fa-xl xl:fa-xs absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
                         </div>
-                        <button className="rounded-3xl bg-main-yellow xl:w-56 lg:w-48 xl:h-12 lg:h-10 font-semibold ml-2 my-4">Apply</button>
+                        <button className="rounded-3xl bg-main-yellow lg:w-56 xl:w-48 lg:h-12 xl:h-10 font-semibold ml-2 my-4">Apply</button>
                     </div>
-                    <button className="rounded-3xl bg-main-yellow xl:w-[530px] lg:w-[415px] xl:h-12 lg:h-10 font-semibold ml-2 my-4" onClick={handleConfirm}>Check Out</button>
+                    <button className="rounded-3xl bg-main-yellow lg:w-[530px] xl:w-[415px] lg:h-12 xl:h-10 font-semibold ml-2 my-4" onClick={handleConfirm}>Check Out</button>
                 </div>
             </div>
           </div>

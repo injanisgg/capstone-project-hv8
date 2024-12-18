@@ -40,17 +40,17 @@ function CardPictShop() {
     return (
       <div className="">
         <div
-        className="flex flex-col gap-3 border-0 hover:border-2 border-main-army rounded-3xl ease-in-out cursor-pointer xl:w-64 lg:w-48"
+        className="flex flex-col gap-3 border-0 hover:border-2 border-main-army rounded-3xl ease-in-out cursor-pointer lg:w-64 xl:w-48"
         key={id}
       >
         <div className="bg-white rounded-3xl overflow-hidden" onClick={() => handleRedirect(id)}>
-          <div className="relative p-8 xl:w-64 lg:w-48 h-72">
+          <div className="relative p-8 lg:w-64 xl:w-48 h-72">
             <img src={image} className="w-full h-full object-contain" alt={title} />
           </div>
         </div>
         <div className="flex flex-col gap-2 my-2 mx-2">
           <div className="text-black bg-landing py-1 px-2 rounded-lg w-fit">{category}</div>
-          <div className="text-main-army font-bold xl:text-lg lg:text-sm">{truncatedTitle}</div>
+          <div className="text-main-army font-bold lg:text-lg xl:text-sm">{truncatedTitle}</div>
           <div className="flex gap-1 items-center">
             <span className="flex gap-1">{renderStars(rate)}</span>
             <span className="text-main-army text-sm font-light">{rate}</span>
@@ -67,7 +67,7 @@ function CardPictShop() {
     <>
       {isLoading ? (
         <div>
-          <img src={LoadingGif} alt="Loading..." className='my-44 xl:mx-96 lg:mx-80'/>
+          <img src={LoadingGif} alt="Loading..." className='my-44 lg:mx-96 xl:mx-80'/>
         </div>
       ) : (
         renderList
