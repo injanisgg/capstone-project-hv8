@@ -38,25 +38,25 @@ function CardPictShop() {
   const truncatedTitle = title.length > 18 ? `${title.substring(0, 18)}...` : title;
 
     return (
-      <div className="container mx-9">
+      <div className="">
         <div
-        className="flex flex-col gap-3 border-0 hover:border-2 border-main-army rounded-3xl ease-in-out cursor-pointer w-64 md:w-48"
+        className="flex flex-col gap-3 border-0 hover:border-2 border-main-army rounded-3xl ease-in-out cursor-pointer xl:w-64 lg:w-48"
         key={id}
       >
         <div className="bg-white rounded-3xl overflow-hidden" onClick={() => handleRedirect(id)}>
-          <div className="relative p-8 w-64 md:w-48 h-72">
+          <div className="relative p-8 xl:w-64 lg:w-48 h-72">
             <img src={image} className="w-full h-full object-contain" alt={title} />
           </div>
         </div>
         <div className="flex flex-col gap-2 my-2 mx-2">
           <div className="text-black bg-landing py-1 px-2 rounded-lg w-fit">{category}</div>
-          <div className="text-main-army font-bold text-lg md:text-sm">{truncatedTitle}</div>
+          <div className="text-main-army font-bold xl:text-lg lg:text-sm">{truncatedTitle}</div>
           <div className="flex gap-1 items-center">
             <span className="flex gap-1">{renderStars(rate)}</span>
             <span className="text-main-army text-sm font-light">{rate}</span>
           </div>
           <div className="text-main-army font-bold text-md">$ {price}</div>
-          <button className="rounded-3xl w-42 bg-main-yellow h-10 font-semibold" onClick={handleRedirectLogin}>Add to cart</button>
+          <button className="rounded-3xl lg:w-42 bg-main-yellow h-10 font-semibold" onClick={handleRedirectLogin}>Add to cart</button>
         </div>
       </div>
       </div>
@@ -67,7 +67,7 @@ function CardPictShop() {
     <>
       {isLoading ? (
         <div>
-          <img src={LoadingGif} alt="Loading..." className='my-44 mx-96 md:mx-80'/>
+          <img src={LoadingGif} alt="Loading..." className='my-44 xl:mx-96 lg:mx-80'/>
         </div>
       ) : (
         renderList

@@ -6,8 +6,8 @@ function LoginPage() {
   return (
     <div className='flex justify-around items-center'>
       <div>
-        <h1 className="text-main-army text-4xl font-bold pr-32 ml-60 absolute top-8 left-18 md:left-14 z-10">MON.CHÉRIE</h1>
-        <img id='jkt' src={ImgLeft} alt="JKT48 Greshan Family" className='w-[40rem] md:w-[30rem] relative z-0'/>
+        <h1 className="text-main-army text-4xl font-bold pr-32 ml-60 absolute top-8 xl:left-18 lg:left-14 z-10">MON.CHÉRIE</h1>
+        <img id='jkt' src={ImgLeft} alt="JKT48 Greshan Family" className='xl:w-[32rem] lg:w-[30rem] relative z-0'/>
       </div>
       <FormIn welcomeText={"Nice to see you again!"} buttonText={"Login"} questOne={"Don't have an account?"} actionOne={'Get Started'} redirectTo={"/signup"}/>
     </div>
