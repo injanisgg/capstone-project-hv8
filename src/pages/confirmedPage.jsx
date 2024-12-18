@@ -11,7 +11,7 @@ function ConfirmedPage() {
     }
 
   return (
-    <div className='flex flex-col justify-around gap-9 items-center m-28 md:m-10'>
+    <div className='flex flex-col justify-around gap-9 items-center 1xl:m-28 xl:m-10'>
         <div className='flex gap-2 items-center'>
             <div className="text-main-army font-bold text-3xl text-center">CONFIRMED</div>
             <i class="fa-solid fa-circle-check text-main-army fa-2xl"></i>
@@ -27,7 +27,7 @@ function ConfirmedPage() {
             <h3>Estimated delivery</h3> 
             <h3>Wednesday, 14th May 2025</h3>
         </div>
-        <button className="rounded-3xl bg-main-yellow w-56 h-12 md:h-10 font-semibold ml-2 my-4 md:my-1" onClick={handleBack}>Back Shopping</button>
+        <button className="rounded-3xl bg-main-yellow w-56 1xl:h-12 xl:h-10 font-semibold ml-2 xl:my-1" onClick={handleBack}>Back Shopping</button>
     </div>
   )
 }

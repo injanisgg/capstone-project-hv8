@@ -3,7 +3,7 @@ import React from 'react'
 function FiltersBar() {
   return (
     <div>
-      <div className='bg-white rounded-3xl xl:w-[295px] lg:w-[260px] xl:h-[1420px] lg:h-[1550px] border border-slate-300'>
+      <div className='bg-white rounded-3xl xl:w-[295px] 1xl:w-[260px] xl:h-[1420px] 1xl:h-[1550px] border border-slate-300'>
         {/* content */}
         <div className='mx-6 my-6'>
             <div className='flex justify-between items-center'>
@@ -11,7 +11,7 @@ function FiltersBar() {
                 <i className="fa-solid fa-sliders text-main-army"></i>
             </div>
             {/* Basic filter */}
-            <div className="border-b-2 border-gray-300 xl:w-[15.3rem] lg:w-52 my-6"></div>
+            <div className="border-b-2 border-gray-300 xl:w-[15.3rem] 1xl:w-52 my-6"></div>
             <ul className='flex flex-col my-5 gap-3'>
                 <li className='flex justify-between items-center'>
                     <p className='text-gray-500 text-md'>T-Shirt</p>
@@ -34,7 +34,7 @@ function FiltersBar() {
                     <i className="fa-solid fa-circle-chevron-right text-main-yellow fa-lg"></i>
                 </li>
             </ul>
-            <div className="border-b-2 border-gray-300 xl:w-[15.3rem] lg:w-52 my-6"></div>
+            <div className="border-b-2 border-gray-300 xl:w-[15.3rem] 1xl:w-52 my-6"></div>
             {/* Price filter */}
             <div className='flex justify-between items-center'>
                 <h2 className="text-main-army font-bold text-xl">Price</h2>
@@ -53,7 +53,7 @@ function FiltersBar() {
                     placeholder="Enter Higher Price"
                 />
             </div>
-            <div className="border-b-2 border-gray-300 xl:w-[15.3rem] lg:w-52 my-6"></div>
+            <div className="border-b-2 border-gray-300 xl:w-[15.3rem] 1xl:w-52 my-6"></div>
             {/* Color filter */}
             <div className='flex justify-between items-center'>
                 <h2 className="text-main-army font-bold text-xl">Color</h2>
@@ -85,7 +85,7 @@ function FiltersBar() {
                     <i className="fa-solid fa-circle text-teal-400 fa-2xl"></i>
                 </div>
             </div>
-            <div className="border-b-2 border-gray-300 xl:w-[15.3rem] lg:w-52 my-6"></div>
+            <div className="border-b-2 border-gray-300 xl:w-[15.3rem] 1xl:w-52 my-6"></div>
             {/* Size filter */}
             <div className='flex justify-between items-center'>
                 <h2 className="text-main-army font-bold text-xl">Size</h2>
@@ -102,7 +102,7 @@ function FiltersBar() {
                 <button className="mr-4 mb-4 bg-gray-100 rounded-full py-3 px-4 text-gray-700 placeholder-gray-500 focus:outline-none">3X-Large</button>
                 <button className="mr-4 mb-4 bg-gray-100 rounded-full py-3 px-4 text-gray-700 placeholder-gray-500 focus:outline-none">4X-Large</button>
             </div>
-            <div className="border-b-2 border-gray-300 xl:w-[15.3rem] lg:w-52 my-6"></div>
+            <div className="border-b-2 border-gray-300 xl:w-[15.3rem] 1xl:w-52 my-6"></div>
             {/* Dress Style filter */}
             <div className='flex justify-between items-center'>
                 <h2 className="text-main-army font-bold text-xl">Dress Style</h2>
@@ -126,7 +126,7 @@ function FiltersBar() {
                     <i className="fa-solid fa-circle-chevron-right text-main-yellow fa-lg"></i>
                 </li>
             </ul>
-            <button className="rounded-3xl bg-main-yellow xl:w-56 lg:w-48 h-10 font-semibold ml-2 my-4">Apply Filters</button>
+            <button className="rounded-3xl bg-main-yellow xl:w-56 1xl:w-48 h-10 font-semibold ml-2 my-4">Apply Filters</button>
         </div>
       </div>
     </div>

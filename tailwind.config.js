@@ -14,6 +14,9 @@ module.exports = {
       fontFamily: {
         'main': ['Bebas Neue', 'Inter Tight']
       },
+      screens: {
+        '1xl' : '1496px'
+      }
     },
   },
   plugins: [],

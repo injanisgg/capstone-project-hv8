@@ -6,7 +6,7 @@ function Footer() {
       {/* Wrapper */}
       <div className="relative bg-landing w-full h-[34rem] md:w-full pt-2">
         {/* Card army */}
-        <div className="absolute top-[-5rem] bg-main-army shadow-md rounded-2xl w-full lg:w-[78rem] xl:w-[64rem] z-20 mx-32">
+        <div className="absolute top-[-5rem] bg-main-army shadow-md rounded-2xl w-full 1xl:w-[78rem] xl:w-[64rem] z-20 mx-32">
           <div className="relative flex justify-between items-center px-10 py-8">
             <div>
               <div className="text-white font-bold text-4xl">STAY UP TO DATE ABOUT</div>
@@ -33,7 +33,7 @@ function Footer() {
           <div className="flex justify-around mx-12 pt-20">
             {/* Content */}
             <div className="flex flex-col gap-5">
-              <h1 className="lg:text-3xl xl:text-2xl font-bold pr-[8rem] text-main-army">MON.CHÉRIE</h1>
+              <h1 className="1xl:text-3xl xl:text-2xl font-bold pr-[8rem] text-main-army">MON.CHÉRIE</h1>
               <div className="flex flex-col">
                 <span className="text-gray-500 text-sm">We have clothes that suits your style and</span>
                 <span className="text-gray-500 text-sm">which you're proud to wear. From</span>
@@ -41,16 +41,16 @@ function Footer() {
               </div>
               <ul className="flex gap-4 mt-4">
                 <li>
-                  <i className="fa-brands fa-twitter text-main-army lg:fa-2xl xl:fa-xl"></i>
+                  <i className="fa-brands fa-twitter text-main-army 1xl:fa-2xl xl:fa-xl"></i>
                 </li>
                 <li>
-                  <i className="fa-brands fa-instagram text-main-army lg:fa-2xl xl:fa-xl"></i>
+                  <i className="fa-brands fa-instagram text-main-army 1xl:fa-2xl xl:fa-xl"></i>
                 </li>
                 <li>
-                  <i className="fa-brands fa-facebook text-main-army lg:fa-2xl xl:fa-xl"></i>
+                  <i className="fa-brands fa-facebook text-main-army 1xl:fa-2xl xl:fa-xl"></i>
                 </li>
                 <li>
-                  <i className="fa-brands fa-github text-main-army lg:fa-2xl xl:fa-xl"></i>
+                  <i className="fa-brands fa-github text-main-army 1xl:fa-2xl xl:fa-xl"></i>
                 </li>
               </ul>
             </div>
@@ -85,7 +85,7 @@ function Footer() {
               <span className="text-gray-500 xl:text-sm">YouTube</span>
             </div>
           </div>
-          <div className="border-b-2 border-gray-300 mx-20 lg:w-[1380px] xl:w-[1120px] mt-14"></div>
+          <div className="border-b-2 border-gray-300 mx-20 1xl:w-[1380px] xl:w-[1120px] mt-14"></div>
           <div className="flex flex-col gap-0">
             <p className="text-gray-500 mt-4 ml-28 xl:text-sm xl:ml-20">
               Design by Hamzah Naeem

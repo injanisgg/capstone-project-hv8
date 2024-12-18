@@ -140,24 +140,24 @@ const handleAddToCart = () => {
       <div className="flex gap-10 mt-32 ml-20">
         {Object.keys(product).length === 0 ? (
             <div className='flex items-center ml-[34rem]'>
-                <img src={Loading} alt="Loading..." className='text-main-army lg:mr-28' />
+                <img src={Loading} alt="Loading..." className='text-main-army 1xl:mr-28' />
             </div>
         ) : (
           <>
             <div className="flex gap-5">
               <div className="flex flex-col justify-evenly">
                 {[image, image].map((img, index) => (
-                  <div key={index} className="mb-5 lg:w-52 xl:w-36">
+                  <div key={index} className="mb-5 1xl:w-52 xl:w-36">
                     <CardPicture picture={img}/>
                   </div>
                 ))}
               </div>
-              <div className="lg:w-[30rem] xl:w-80">
+              <div className="1xl:w-[30rem] xl:w-80">
                 <CardPicture picture={image} />
               </div>
             </div>
             <div className="flex flex-col gap-2 my-2 mx-2">
-              <h1 className="text-main-army font-extrabold lg:text-3xl xl:text-2xl leading-tight">{title}</h1>
+              <h1 className="text-main-army font-extrabold 1xl:text-3xl xl:text-2xl leading-tight">{title}</h1>
               <div className="flex gap-1 items-center">
                 <span className="flex gap-1">{renderStars(rate)}</span>
                 <span className="text-main-army text-sm font-light">{rate}</span>
@@ -199,7 +199,7 @@ const handleAddToCart = () => {
                     className="py-2 px-4 text-main-army fa-solid fa-plus"
                     onClick={handleAddQuantity}></button>
                 </div>
-                <button className="rounded-3xl lg:w-96 xl:w-80 bg-main-yellow h-10 font-semibold" onClick={handleAddToCart && handleRedirectLogin}>
+                <button className="rounded-3xl 1xl:w-96 xl:w-80 bg-main-yellow h-10 font-semibold" onClick={handleAddToCart && handleRedirectLogin}>
                   Add to cart
                 </button>
                </div>
@@ -209,7 +209,7 @@ const handleAddToCart = () => {
           </>
         )}
       </div>
-      <div className="border-b-2 border-gray-300 mx-20 lg:w-[1380px] xl:w-[1110px] mt-14"></div>
+      <div className="border-b-2 border-gray-300 mx-20 1xl:w-[1380px] xl:w-[1110px] mt-14"></div>
     </>
   );
 }
