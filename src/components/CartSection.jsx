@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 function CartSection() {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const dispatch = useDispatch();
-  const [error, setError] = useState('');
+  const [error, setError] = useState({});
   const navigate = useNavigate();
 
   // useEffect untuk menyimpan cartItems ke localStorage
@@ -28,11 +28,13 @@ const handleIncrement = (product) => {
     const newQuantity = product.quantity + 1;
     dispatch(addToCart({ ...product, quantity: newQuantity }));
     localStorage.setItem(`quantity-${product.id}`, JSON.stringify(newQuantity));
+
+    setError((prevErrors) => ({ ...prevErrors, [product.id]: '' }))
   } else {
-    setError("Maximum quantity reached");
+    setError((prevErrors) => ({ ...prevErrors, [product.id]: "Maximum quantity reached" }));
 
     setTimeout(() => {
-      setError('')
+      setError((prevErrors) => ({ ...prevErrors, [product.id]: '' }))
     }, 2000)
   }
 };
@@ -42,11 +44,14 @@ const handleDecrement = (product) => {
     const newQuantity = product.quantity - 1;
     dispatch(addToCart({ ...product, quantity: newQuantity }));
     localStorage.setItem(`quantity-${product.id}`, JSON.stringify(newQuantity));
+    // Hapus error untuk produk ini jika ada
+    setError((prevErrors) => ({ ...prevErrors, [product.id]: '' }));
   } else {
-    setError("Minimum quantity is 1");
+    // Set error untuk produk ini
+    setError((prevErrors) => ({ ...prevErrors, [product.id]: "Minimum quantity is 1" }));
     setTimeout(() => {
-      setError('')
-    }, 2000)
+      setError((prevErrors) => ({ ...prevErrors, [product.id]: '' }));
+    }, 2000);
   }
 };
 
@@ -109,7 +114,7 @@ const handleConfirm = () => {
                       </div>
                     </div>
                   </div>
-                  {error && <p className="text-red-500 text-right mr-6">{error}</p>}
+                  {error[item.id] && <p className="text-red-500 text-right mr-6">{error[item.id]}</p>}
                   <div className="border-b-2 border-gray-300 1xl:w-[40rem] xl:w-[32rem] 1xl:my-10 xl:my-5"></div>
                 </div>
               );
