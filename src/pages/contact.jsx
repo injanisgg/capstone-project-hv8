@@ -1,10 +1,16 @@
 import React from 'react'
 import Winter from '../img/winter.png'
+import PopupSignin from '../components/PopupSignin'
 
 function Contact() {
+
+  const isLoggedin = localStorage.getItem('authToken')
+  const showPopupSignin = !isLoggedin
+
   return (
     <div className="">
-      <div className='flex gap-5 1xl:mt-28 xl:mt-24'>
+      {showPopupSignin && <PopupSignin/>}
+      <div className={`flex gap-5 1xl:mt-28 ${isLoggedin ? 'xl:mt-24' : 'xl:mt-28'}`}>
         <div className='flex flex-col justify-center items-center 1xl:my-5 xl:mt-4 xl:mb-0 1xl:mx-42 xl:mx-48'>
           <form className='flex flex-col gap-5'>
             <h2 className='text-main-army font-extrabold text-2xl leading-tight'>Contact Us!</h2>

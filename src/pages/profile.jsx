@@ -48,7 +48,7 @@ function Profile() {
   }
 
   return (
-    <div className='mt-36'>
+    <div className='1xl:mt-36 xl:mt-40'>
     {/*header*/}
     <header>
       <div className='flex justify-between xl:mx-20 1xl:mx-16 my-5 xl:my-2 items-center'>

@@ -1,10 +1,16 @@
 import React from 'react'
 import Rose from '../img/rose.png'
+import PopupSignin from '../components/PopupSignin'
 
 function About() {
+
+  const isLoggedin = localStorage.getItem('authToken')
+  const showPopupSignin = !isLoggedin
+
   return (
-    <div className="container mx-auto">
-      <div className='flex gap-5 1xl:mt-28 xl:mt-24'>
+    <div className="">
+      {showPopupSignin && <PopupSignin/>}
+      <div className={`flex gap-5 1xl:mt-28 ${isLoggedin ? 'xl:mt-24' : 'xl:mt-28'}`}>
       <div className='flex flex-col justify-center items-center xl:my-8 1xl:my-0 1xl:pt-12 1xl:mx-52 xl:mx-20'>
         <h1 className="1xl:text-4xl xl:text-3xl text-main-army font-bold pr-[7rem] self-start">MON.CHÉRIE</h1>
         <div className='w-[34rem] my-6'>

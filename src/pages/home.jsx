@@ -4,11 +4,17 @@ import DressStyle from '../components/DressStyle';
 import Footer from '../components/Footer';
 import ReviewSection from '../components/ReviewSection';
 import Category from '../components/Category';
+import PopupSignin from '../components/PopupSignin';
 
 function Home() {
 
+  const isLoggedin = localStorage.getItem('authToken')
+  const showPopupSignin = !isLoggedin
+
   return (
-    <div className='mt-24'>
+    <div>
+      {showPopupSignin && <PopupSignin/>}
+      <div className={`mt-24 ${isLoggedin ? 'xl:mt-24' : 'xl:mt-32'}`}></div>
       <LandingPage/>
       <Category headTitle={'NEW ARRIVALS'} categoryProduct={"men's clothing"}/>
       <Category headTitle={'TOP SELLING'} categoryProduct={"jewelery"}/>
