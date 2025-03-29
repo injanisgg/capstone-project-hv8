@@ -11,15 +11,15 @@ function LandingPage() {
     <div>
     {/* Top page */}
         <div className="bg-landing xl:w-full 1xl:h-fit flex justify-around">
-            <div className='gap-5 pt-16 pl-20 flex flex-col justify-evenly'>
+            <div className='lg:gap-5 lg:pt-16 lg:pl-20 flex flex-col justify-evenly'>
                 <h1 className="text-main-army font-extrabold 1xl:text-7xl xl:text-6xl leading-tight ">
                     <span className="block">FIND CLOTHES</span>
                     <span className="block">THAT MATCHES</span>
                     <span className="block">YOUR STYLE</span>
                 </h1>
-                <p>
-                    <span className='block xl:text-sm'>Browse through our diverse range of meticulously crafted garments, designed</span> 
-                    <span className='block xl:text-sm'>to bring out your individuality and cater to your sense of style.</span>
+                <p className=''>
+                    <span className='text-sm'>Browse through our diverse range of meticulously crafted garments, designed</span> 
+                    <span className='text-sm'>to bring out your individuality and cater to your sense of style.</span>
                 </p>
                 <button className="rounded-full bg-main-yellow w-36 h-10 font-semibold">Shop Now</button>
                 <div className="flex justify-between items-center xl:my-8 1xl:my-2 1xl:w-60">

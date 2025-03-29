@@ -15,6 +15,12 @@ module.exports = {
         'main': ['Bebas Neue', 'Inter Tight']
       },
       screens: {
+        // mobile small - large
+        sm : "480px", //hp
+        md : "768px", //tablet
+        //pc or laptop small - large
+        lg : "1024px", //laptop kecil
+        xl : "1280px", //laptop gg 1496, kebanyakan laptop 1240
         '1xl' : '1496px'
       }
     },

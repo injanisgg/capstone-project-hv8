@@ -1,25 +1,76 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Search from "../components/Search";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faHome as Home,
+  faBasketShopping as Shop,
+  faCircleInfo as About,
+  faAddressBook as Contact
+} from '@fortawesome/free-solid-svg-icons';
 
 function Navbar() {
+  const [activeTab, setActiveTab] = useState('home');
+  const navigate = useNavigate();
+  const location = useLocation()
+
+  const tabs = [
+    { id: 'home', label: 'Home', icon: Home, path: '/' },
+    { id: 'shop', label: 'Shop', icon: Shop, path: '/shop' },
+    { id: 'about', label: 'About', icon: About, path: '/about' },
+    { id: 'contact', label: 'Contact', icon: Contact, path: '/contact' }
+  ]
+
   return (
-    <div className="container mx-auto px-4">
-      <div className='fixed top-0 left-0 right-0 z-30'>
-        <nav className="py-8 w-full bg-white flex flex-col md:flex-row md:px-8 gap-16 items-center text-main-army justify-center">
-          <h1 className="text-4xl md:text-3xl font-bold sm:pr-[7rem] md:pr-4 md:pl-2">MON.CHÉRIE</h1>
-          <NavLink to="/" className={({ isActive }) => isActive? 'hover: underline active font-bold': 'hover:underline'}>Home</NavLink>
-          <NavLink to="/shop" className={({ isActive }) => isActive? 'hover: underline active font-bold': 'hover:underline'}>Shop</NavLink>
-          <NavLink to="/about" className={({ isActive }) => isActive? 'hover: underline active font-bold': 'hover:underline'}>About</NavLink>
-          <NavLink to="/contact" className={({ isActive }) => isActive? 'hover: underline active font-bold': 'hover:underline'}>Contact</NavLink>
-          <Search/>
-          <NavLink to="/cart"><i className="fa-solid fa-cart-shopping"></i></NavLink>
-          <NavLink to="/profile"><i className="fa-solid fa-user"></i></NavLink>
-        </nav>
-        <div className="border-b-2 border-main-army w-full mt-0"></div>
+    <div>
+      {/* navbar for xl and lg */}
+      <div className="container mx-auto px-4">
+        <div className='hidden lg:fixed top-0 left-0 right-0 z-30'>
+          <nav className="py-8 w-full bg-white flex flex-col gap-16 items-center text-main-army justify-center">
+            <h1 className="text-4xl font-bold">MON.CHÉRIE</h1>
+            <NavLink to="/" className={({ isActive }) => isActive? 'hover: underline active font-bold': 'hover:underline'}>Home</NavLink>
+            <NavLink to="/shop" className={({ isActive }) => isActive? 'hover: underline active font-bold': 'hover:underline'}>Shop</NavLink>
+            <NavLink to="/about" className={({ isActive }) => isActive? 'hover: underline active font-bold': 'hover:underline'}>About</NavLink>
+            <NavLink to="/contact" className={({ isActive }) => isActive? 'hover: underline active font-bold': 'hover:underline'}>Contact</NavLink>
+            <Search/>
+            <NavLink to="/cart"><i className="fa-solid fa-cart-shopping"></i></NavLink>
+            <NavLink to="/profile"><i className="fa-solid fa-user"></i></NavLink>
+          </nav>
+          <div className="border-b-2 border-main-army w-full mt-0"></div>
+        </div>
+      </div>
+
+      {/* navbar for md and sm */}
+      <div className="lg:hidden top-0 left-0 right-0 z-20 bg-white border-b p-2">
+        <div className="flex-col gap-5">
+          <h1 className="text-2xl font-bold justify-self-center text-main-army">MON.CHÉRIE</h1>
+          <div className='flex justify-center items-center gap-5'>
+            <Search/>
+            <NavLink to="/cart"><i className="fa-solid fa-cart-shopping text-main-army"></i></NavLink>
+            <NavLink to="/profile"><i className="fa-solid fa-user text-main-army"></i></NavLink>
+          </div>
+        </div>
+      </div>
+      <div className="lg:hidden z-20 fixed bottom-0 left-0 right-0 w-full bg-white shadow-md border-t flex justify-around py-2">
+        {tabs.map((tab) => (
+          <Link
+            key={tab.id}
+            to={tab.path}
+            onClick={() => setActiveTab(tab.id)}
+            className={`flex flex-col items-center text-gray-600
+              ${location.pathname === tab.path ? 'bg-green-200 p-4 rounded-xl' : 'p-4'}`}
+          >
+            <FontAwesomeIcon 
+              icon={tab.icon}
+              className={`text-base transition-all duration-200 ${location.pathname === tab.path ? 'text-main-army' : 'text-gray-600'}`}
+            />
+            <span className={`text-xs sm:text-sm font-bold ${location.pathname === tab.path ? 'text-main-army' : 'text-gray-600'}`}>{tab.label}</span>
+          </Link>
+        ))}
       </div>
     </div>
+    
   )
 }
 
-export default Navbar
+export default Navbar;
