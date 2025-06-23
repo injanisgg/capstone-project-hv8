@@ -19,7 +19,7 @@ function Search() {
   };
 
   return (
-    <div className="container mx-auto">
+    <div className="w-full">
       <form onSubmit={handleSearch} className="relative md:w-92">
         <input
           type="text"

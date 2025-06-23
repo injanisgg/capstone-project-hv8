@@ -24,8 +24,8 @@ function Navbar() {
   return (
     <div>
       {/* navbar for xl and lg */}
-      <div className="container mx-auto px-4">
-        <div className='hidden lg:fixed top-0 left-0 right-0 z-30'>
+      <div className="px-4">
+        <div className='hidden lg:fixed lg:top-0 lg:left-0 lg:right-0 z-30'>
           <nav className="py-8 w-full bg-white flex flex-col gap-16 items-center text-main-army justify-center">
             <h1 className="text-4xl font-bold">MON.CHÉRIE</h1>
             <NavLink to="/" className={({ isActive }) => isActive? 'hover: underline active font-bold': 'hover:underline'}>Home</NavLink>
@@ -41,8 +41,8 @@ function Navbar() {
       </div>
 
       {/* navbar for md and sm */}
-      <div className="lg:hidden top-0 left-0 right-0 z-20 bg-white border-b p-2">
-        <div className="flex-col gap-5">
+      <div className="lg:hidden w-full z-20 border-b p-2">
+        <div className="flex-col fixed top-16 p-3 left-0 right-0 gap-5 bg-white">
           <h1 className="text-2xl font-bold justify-self-center text-main-army">MON.CHÉRIE</h1>
           <div className='flex justify-center items-center gap-5'>
             <Search/>

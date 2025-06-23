@@ -8,9 +8,9 @@ import zara from '../img/zara.png'
 
 function LandingPage() {
   return (
-    <div>
+    <div className='mt-36'>
     {/* Top page */}
-        <div className="bg-landing xl:w-full 1xl:h-fit flex justify-around">
+        <div className="bg-landing p-3 w-full 1xl:h-fit flex justify-around">
             <div className='lg:gap-5 lg:pt-16 lg:pl-20 flex flex-col justify-evenly'>
                 <h1 className="text-main-army font-extrabold 1xl:text-7xl xl:text-6xl leading-tight ">
                     <span className="block">FIND CLOTHES</span>
