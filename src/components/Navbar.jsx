@@ -8,11 +8,13 @@ import {
   faCircleInfo as About,
   faAddressBook as Contact
 } from '@fortawesome/free-solid-svg-icons';
+import { useFilter } from './FilterContext';
 
-function Navbar() {
+function Navbar({ onToggleFilter }) {
   const [activeTab, setActiveTab] = useState('home');
   const navigate = useNavigate();
   const location = useLocation()
+  const { toggleFilter } = useFilter();
 
   const tabs = [
     { id: 'home', label: 'Home', icon: Home, path: '/' },
@@ -45,6 +47,12 @@ function Navbar() {
         <div className="flex-col fixed z-30 top-14 p-3 left-0 right-0 gap-5 bg-white">
           <h1 className="text-lg lg:text-2xl font-bold justify-self-center text-main-army">MON.CHÉRIE</h1>
           <div className='flex justify-center items-center gap-5'>
+            <button 
+              onClick={toggleFilter}
+              className='lg:hidden p-2 text-main-army'
+            >
+              <i className="fa-solid fa-sliders text-main-army"></i>
+            </button>
             <Search/>
             <NavLink to="/cart"><i className="fa-solid fa-cart-shopping text-main-army"></i></NavLink>
             <NavLink to="/profile"><i className="fa-solid fa-user text-main-army"></i></NavLink>

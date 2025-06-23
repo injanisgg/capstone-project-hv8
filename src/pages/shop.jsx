@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import CardPictShop from '../components/CardPictShop';
 import FiltersBar from '../components/FiltersBar';
 import Footer from '../components/Footer'
@@ -32,9 +32,9 @@ function Shop() {
   return (
     <div>
       {showPopupSignin && <PopupSignin/>}
-      <div className={`flex gap-5 mx-16 1xl:mt-36 ${isLoggedin ? 'xl:mt-32' : 'xl:mt-40'}`}>
+      <div className={`flex gap-5 mx-3 lg:mx-16 mt-36 1xl:mt-36 ${isLoggedin ? 'xl:mt-32' : 'xl:mt-40'}`}>
         <FiltersBar />
-        <div className="grid grid-cols-1 grid-rows-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-2 grid-rows-4 lg:grid-cols-4 gap-5">
           <CardPictShop/>
         </div>
       </div>

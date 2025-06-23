@@ -47,7 +47,7 @@ function Category({ headTitle, categoryProduct }) {
                 key={id}
                 onClick={handleRedirect}>
                 <div className="bg-white rounded-3xl overflow-hidden">
-                    <div className="relative p-2 lg:p-8 w-28 h-28 1xl:w-64 xl:w-48 lg:h-72 justify-self-center">
+                    <div className="relative p-2 lg:p-8 size-36 1xl:w-64 xl:w-48 lg:h-72 justify-self-center">
                         <img src={image} className="w-full h-full object-contain" alt={title} />
                     </div>
                 </div>
