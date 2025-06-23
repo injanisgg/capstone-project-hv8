@@ -14,7 +14,7 @@ function Home() {
   return (
     <div>
       {showPopupSignin && <PopupSignin/>}
-      <div className={`mt-24 ${isLoggedin ? 'xl:mt-24' : 'xl:mt-32'}`}></div>
+      <div className={`mt-24 ${isLoggedin ? 'mt-24' : 'mt-32'}`}></div>
       <LandingPage/>
       <Category headTitle={'NEW ARRIVALS'} categoryProduct={"men's clothing"}/>
       <Category headTitle={'TOP SELLING'} categoryProduct={"jewelery"}/>

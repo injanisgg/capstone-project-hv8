@@ -41,9 +41,9 @@ function Navbar() {
       </div>
 
       {/* navbar for md and sm */}
-      <div className="lg:hidden w-full z-20 border-b p-2">
-        <div className="flex-col fixed top-16 p-3 left-0 right-0 gap-5 bg-white">
-          <h1 className="text-2xl font-bold justify-self-center text-main-army">MON.CHÉRIE</h1>
+      <div className="lg:hidden w-full z-30 border-b p-2">
+        <div className="flex-col fixed z-30 top-14 p-3 left-0 right-0 gap-5 bg-white">
+          <h1 className="text-lg lg:text-2xl font-bold justify-self-center text-main-army">MON.CHÉRIE</h1>
           <div className='flex justify-center items-center gap-5'>
             <Search/>
             <NavLink to="/cart"><i className="fa-solid fa-cart-shopping text-main-army"></i></NavLink>

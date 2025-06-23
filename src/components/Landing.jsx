@@ -8,11 +8,11 @@ import zara from '../img/zara.png'
 
 function LandingPage() {
   return (
-    <div className='mt-36'>
+    <div className='mt-32'>
     {/* Top page */}
-        <div className="bg-landing p-3 w-full 1xl:h-fit flex justify-around">
-            <div className='lg:gap-5 lg:pt-16 lg:pl-20 flex flex-col justify-evenly'>
-                <h1 className="text-main-army font-extrabold 1xl:text-7xl xl:text-6xl leading-tight ">
+        <div className="bg-landing w-full 1xl:h-fit flex flex-col lg:flex-row justify-around">
+            <div className='gap-3 p-3 lg:gap-5 lg:pt-16 lg:pl-20 flex flex-col justify-evenly'>
+                <h1 className="text-main-army font-black text-3xl 1xl:text-7xl xl:text-6xl leading-tight">
                     <span className="block">FIND CLOTHES</span>
                     <span className="block">THAT MATCHES</span>
                     <span className="block">YOUR STYLE</span>
@@ -21,31 +21,31 @@ function LandingPage() {
                     <span className='text-sm'>Browse through our diverse range of meticulously crafted garments, designed</span> 
                     <span className='text-sm'>to bring out your individuality and cater to your sense of style.</span>
                 </p>
-                <button className="rounded-full bg-main-yellow w-36 h-10 font-semibold">Shop Now</button>
-                <div className="flex justify-between items-center xl:my-8 1xl:my-2 1xl:w-60">
-                    <div className="flex items-center">
+                <button className="rounded-full bg-main-yellow lg:w-36 h-10 font-semibold">Shop Now</button>
+                <div className="flex flex-wrap lg:flex-row justify-center lg:justify-between items-center xl:my-8 1xl:my-2 1xl:w-60">
+                    <div className="flex flex-col lg:flex-row items-center">
                         <span className="1xl:text-4xl xl:text-xl font-bold text-main-army">200+</span>
-                        <span className="ml-2 text-gray-600 xl:text-sm">International Brands</span>
+                        <span className="ml-2 text-gray-600 text-sm xl:text-sm">International Brands</span>
                     </div>
                     <div className="border-l border-gray-300 h-12 mx-4"></div>
-                    <div className="flex items-center">
+                    <div className="flex flex-col lg:flex-row items-center">
                         <span className="1xl:text-4xl xl:text-xl font-bold text-main-army">2,000+</span>
-                        <span className="ml-2 text-gray-600 xl:text-sm">High-Quality Products</span>
+                        <span className="ml-2 text-gray-600 text-sm xl:text-sm">High-Quality Products</span>
                     </div>
-                    <div className="border-l border-gray-300 h-12 mx-4"></div>
-                    <div className="flex items-center">
+                    <div className="hidden lg:border-l border-gray-300 h-12 mx-4"></div>
+                    <div className="flex flex-col lg:flex-row items-center">
                         <span className="1xl:text-4xl xl:text-xl font-bold text-main-army">30,000+</span>
-                        <span className="ml-2 text-gray-600 xl:text-sm">Happy Customers</span>
+                        <span className="ml-2 text-gray-600 text-sm xl:text-sm">Happy Customers</span>
                     </div>
                 </div>
             </div>
             <div>
-                <img src={landing} alt="landing page" className='1xl:w-[38rem] xl:w-[38rem]'/>
+                <img src={landing} alt="landing page" className='w-full 1xl:w-[38rem] xl:w-[38rem]'/>
             </div>
         </div>
         {/* Brand page */}
         <div className='py-8 bg-main-army mt-0'>
-            <ul className='flex items-center justify-items-center justify-around'>
+            <ul className='flex flex-wrap lg:flex-row gap-5 items-center justify-items-center justify-around'>
                 <li><img src={calvinKlein} alt="Calvin Klein" /></li>
                 <li><img src={gucci} alt="Gucci" /></li>
                 <li><img src={versace} alt="Versace" /></li>
