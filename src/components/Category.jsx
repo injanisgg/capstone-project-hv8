@@ -47,7 +47,7 @@ function Category({ headTitle, categoryProduct }) {
                 key={id}
                 onClick={handleRedirect}>
                 <div className="bg-white rounded-3xl overflow-hidden">
-                    <div className="relative p-2 lg:p-8 w-20 h-24 1xl:w-64 xl:w-48 lg:h-72 justify-self-center">
+                    <div className="relative p-2 lg:p-8 w-28 h-28 1xl:w-64 xl:w-48 lg:h-72 justify-self-center">
                         <img src={image} className="w-full h-full object-contain" alt={title} />
                     </div>
                 </div>
@@ -73,7 +73,7 @@ function Category({ headTitle, categoryProduct }) {
                     <img src={Loading} alt="Loading..." className='text-main-army my-0 lg:my-48' />
                 </div>
             ) : (
-                <div className="grid grid-cols-2 lg:grid-cols-1 lg:grid-rows-1 md:grid-cols-2 1xl:grid-cols-4 xl:grid-cols-4 gap-2 lg:gap-12">
+                <div className="grid grid-cols-2 lg:grid-cols-1 lg:grid-rows-1 md:grid-cols-2 1xl:grid-cols-4 xl:grid-cols-4 gap-5 lg:gap-12">
                     {renderList}
                 </div>
             )}
