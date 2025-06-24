@@ -15,7 +15,7 @@ function ReviewSection() {
   return (
     <div className='mx-auto'>
         <h1 className='text-main-army font-extrabold text-4xl leading-tight text-center my-5'>WHAT'S OUR CUSTOMERS SAYS</h1>
-        <div className='mx-5 lg:mx-20 grid grid-cols-1 gap-2 lg:grid-cols-3 lg:gap-4'>
+        <div className='mx-5 md:mx-20 lg:mx-12 grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 justify-self-center lg:gap-4'>
             {reviews.map((item, index) => (
                 <ReviewCard 
                     key={index}

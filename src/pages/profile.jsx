@@ -51,7 +51,7 @@ function Profile() {
     <div className='mt-36 pb-28 lg:pb-0 1xl:mt-36 xl:mt-40'>
     {/*header*/}
     <header>
-      <div className='flex flex-col gap-5 lg:flex-row lg:justify-between xl:mx-20 1xl:mx-16 my-5 xl:my-2 items-center'>
+      <div className='flex flex-col gap-5 lg:flex-row lg:justify-around xl:mx-20 1xl:mx-16 my-5 xl:my-2 items-center'>
         <div className="flex gap-5 items-center">
           <div className="shadow-md rounded-full overflow-hidden">
             <div className="relative">

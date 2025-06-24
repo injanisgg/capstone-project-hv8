@@ -137,7 +137,7 @@ const handleAddToCart = () => {
 
   return (
     <>
-      <div className="flex flex-col lg:flex-row gap-3 lg:gap-10 mt-32 ml-0 px-5 lg:ml-20">
+      <div className="flex flex-col lg:flex-row gap-3 lg:gap-10 mt-32 lg:mt-36 ml-0 px-5">
         {Object.keys(product).length === 0 ? (
             <div className='flex items-center ml-[34rem]'>
                 <img src={Loading} alt="Loading..." className='text-main-army 1xl:mr-28' />
@@ -145,7 +145,7 @@ const handleAddToCart = () => {
         ) : (
           <>
           {/* product image */}
-            <div className="flex flex-col-reverse items-center lg:flex gap-5">
+            <div className="flex flex-col-reverse items-center lg:flex lg:flex-row gap-5">
               <div className="flex flex-row lg:flex-col justify-evenly">
                 {[image, image].map((img, index) => (
                   <div key={index} className="mb-5 w-32 1xl:w-52 xl:w-36">
@@ -153,14 +153,14 @@ const handleAddToCart = () => {
                   </div>
                 ))}
               </div>
-              <div className="w-44 1xl:w-[30rem] xl:w-80">
+              <div className="w-44 sm:w-48 lg:w-52 1xl:w-[30rem] xl:w-80">
                 <CardPicture picture={image} />
               </div>
             </div>
 
             {/* product description */}
             <div className="flex flex-col gap-2 my-2 mx-2">
-              <h1 className="text-main-army font-extrabold 1xl:text-3xl xl:text-2xl leading-tight">{title}</h1>
+              <h1 className="text-main-army font-extrabold 1xl:text-3xl lg:text-2xl leading-tight">{title}</h1>
               <div className="flex gap-1 items-center">
                 <span className="flex gap-1">{renderStars(rate)}</span>
                 <span className="text-main-army text-sm font-light">{rate}</span>
@@ -193,7 +193,7 @@ const handleAddToCart = () => {
               </div>
               <div className="border-b-2 border-gray-200 lg:w-[36rem] my-3"></div>
               <div className="flex gap-2">
-                <div className="bg-gray-100 rounded-full flex lg:w-[220px] h-10 items-center lg:pl-12">
+                <div className="bg-gray-100 rounded-full flex h-10 items-center">
                   <button
                       className="py-2 px-4 text-main-army fa-solid fa-minus"
                       onClick={handleReduceQuantity}>
@@ -205,7 +205,7 @@ const handleAddToCart = () => {
                       onClick={handleAddQuantity}>  
                   </button>
                 </div>
-                <button className="rounded-3xl w-full 1xl:w-96 xl:w-80 bg-main-yellow h-10 font-semibold" onClick={handleAddToCart && handleRedirectLogin}>
+                <button className="rounded-3xl w-full 1xl:w-96 xl:w-80 bg-main-yellow h-10 lg:mx-5 font-semibold" onClick={handleAddToCart && handleRedirectLogin}>
                   Add to cart
                 </button>
                </div>

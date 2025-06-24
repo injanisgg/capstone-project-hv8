@@ -8,9 +8,9 @@ function About() {
   const showPopupSignin = !isLoggedin
 
   return (
-    <div className="mt-36 lg:mt-0 pb-20">
+    <div className="mt-36 lg:mt-40 xl:mt-28 pb-20 lg:pb-0">
       {showPopupSignin && <PopupSignin/>}
-      <div className={`flex flex-col lg:flex-row gap-5 1xl:mt-28 ${isLoggedin ? 'xl:mt-24' : 'xl:mt-28'}`}>
+      <div className={`flex flex-col lg:flex-row lg:justify-center gap-5 1xl:mt-28 ${isLoggedin ? 'xl:mt-24' : 'xl:mt-28'}`}>
       <div className='flex flex-col justify-center items-center xl:my-8 1xl:my-0 1xl:pt-12 1xl:mx-52 xl:mx-20'>
         <h1 className="1xl:text-4xl xl:text-3xl text-main-army font-bold pr-0 lg:pr-[7rem] text-center lg:self-start">MON.CHÉRIE</h1>
         <div className='w-full lg:w-[34rem] my-6 px-5 lg:px-0'>
@@ -36,9 +36,9 @@ function About() {
         </div>
       </div>
       </div>
-        <div className='hidden lg:block lg:overflow-hidden'>
+        <div className='hidden'>
           <div className='relative'>
-            <img src={Rose} alt="Rose Blackpink" className='1xl:w-[458px] xl:w-[360px] xl:pt-7' />
+            <img src={Rose} alt="Rose Blackpink" className='lg:w-80 1xl:w-[458px] xl:w-[360px] xl:pt-7' />
           </div>
         </div>
     </div>

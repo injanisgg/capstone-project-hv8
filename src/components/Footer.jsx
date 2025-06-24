@@ -2,12 +2,12 @@ import React from 'react';
 
 function Footer() {
   return (
-    <div  className='mt-40 bg-landing h-full pb-28 lg:pb-0 lg:h-[34rem]'>
+    <div  className='mt-40 bg-landing h-full pb-28 lg:pb-2'>
       {/* Wrapper */}
-      <div className="relative pt-2 mx-3 lg:mx-32">
+      <div className="relative pt-2 mx-3 md:mx-20">
         {/* Card army */}
-        <div className="absolute top-[-5.5rem] lg:top-[-5rem] bg-main-army shadow-md rounded-2xl w-full 1xl:w-[78rem] xl:w-[64rem] z-20">
-          <div className="relative flex flex-col lg:flex-row justify-between items-center lg:px-10 py-4 lg:py-8">
+        <div className="absolute top-[-5.5rem] lg:top-[-5rem] bg-main-army shadow-md rounded-2xl w-full z-20">
+          <div className="relative flex flex-col md:flex-row justify-between items-center md:px-5 lg:px-10 py-4 lg:py-8">
             <div className='text-center lg:text-left mb-2'>
               <div className="text-white font-bold text-xl lg:text-4xl">STAY UP TO DATE ABOUT</div>
               <div className="text-white font-bold text-xl lg:text-4xl pt-3">OUR LATEST OFFER</div>
@@ -29,7 +29,7 @@ function Footer() {
         </div>
 
         {/* Background landing */}
-        <div className="relative w-full pt-20 z-10 px-2 lg:mx-12">
+        <div className="relative w-full pt-20 z-10 px-2">
           {/* Content */}
             <div className="flex flex-col gap-2 lg:gap-5 pt-20">
               <h1 className="1xl:text-3xl xl:text-2xl font-bold pr-[8rem] text-main-army">MON.CHÉRIE</h1>
@@ -54,7 +54,7 @@ function Footer() {
               </ul>
             </div>
 
-          <div className="grid grid-cols-2 gap-y-4 lg:flex lg:flex-row mt-3">
+          <div className="grid grid-cols-2 gap-y-4 lg:flex lg:flex-row lg:justify-between mt-3">
             {/* Detail sections */}
             <div className="flex flex-col gap-2 lg:gap-5">
               <h1 className="text-lg xl:text-sm text-main-army">COMPANY</h1>

@@ -16,7 +16,7 @@ module.exports = {
       },
       screens: {
         // mobile small - large
-        sm : "480px", //hp
+        sm : "425px", //hp
         md : "768px", //tablet
         //pc or laptop small - large
         lg : "1024px", //laptop kecil

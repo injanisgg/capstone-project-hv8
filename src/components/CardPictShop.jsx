@@ -38,13 +38,13 @@ function CardPictShop() {
   const truncatedTitle = title.length > 18 ? `${title.substring(0, 18)}...` : title;
 
     return (
-      <div className="">
+      <div className="w-full">
         <div
-        className="flex flex-col gap-3 border-0 hover:border-2 border-main-army rounded-3xl ease-in-out cursor-pointer w-36 1xl:w-64 xl:w-48"
+        className="flex flex-col gap-3 border-0 hover:border-2 border-main-army rounded-3xl ease-in-out cursor-pointer w-36 lg:size-full 1xl:w-64 xl:w-48"
         key={id}
       >
         <div className="bg-white rounded-3xl overflow-hidden" onClick={() => handleRedirect(id)}>
-          <div className="relative p-2 w-36 h-36 lg:p-8 1xl:w-64 xl:w-48 lg:h-72">
+          <div className="relative p-2 lg:p-6 size-36 sm:size-40 xl:size-52 1xl:w-64 xl:w-48">
             <img src={image} className="w-full h-full object-contain" alt={title} />
           </div>
         </div>
@@ -70,7 +70,7 @@ function CardPictShop() {
           <img src={LoadingGif} alt="Loading..." className='lg:my-44 1xl:mx-96 xl:mx-80'/>
         </div>
       ) : (
-        <div className='grid grid-cols-2 justify-self-center lg:grid-cols-4 gap-5'>
+        <div className='grid grid-cols-2 justify-center md:grid-cols-4 lg:gap-8 sm:gap-14'>
           {renderList}
         </div>
       )}

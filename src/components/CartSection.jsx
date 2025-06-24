@@ -68,9 +68,9 @@ const handleConfirm = () => {
 
   return (
     <div className="">
-      <div className="flex flex-col lg:flex-row gap-6 mt-40">
+      <div className="flex flex-col gap-6 mt-40">
       {cartItems.length === 0 ? (
-        <div className="text-main-army font-bold text-xl text-center lg:text-3xl 1xl:mx-[36rem] xl:mx-[28rem] 1xl:my-60 xl:my-40">Your Cart is Empty 😓</div>
+        <div className="text-main-army font-bold text-xl text-center lg:text-3xl">Your Cart is Empty 😓</div>
       ) : (
       <>
         {/* Cart item */}

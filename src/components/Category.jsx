@@ -43,11 +43,11 @@ function Category({ headTitle, categoryProduct }) {
 
         return (
             <div
-                className="flex flex-col gap-3 border-0 hover:border-2 border-main-army rounded-3xl ease-in-out cursor-pointer w-36 1xl:w-64 xl:w-48"
+                className="flex flex-col gap-3 border-0 hover:border-2 border-main-army rounded-3xl ease-in-out cursor-pointer w-36 lg:w-52 1xl:w-64 xl:w-48"
                 key={id}
                 onClick={handleRedirect}>
                 <div className="bg-white rounded-3xl overflow-hidden">
-                    <div className="relative p-2 lg:p-8 size-36 1xl:w-64 xl:w-48 lg:h-72 justify-self-center">
+                    <div className="relative p-2 lg:p-8 size-36 sm:size-40 lg:size-56 xl:size-64 justify-self-center">
                         <img src={image} className="w-full h-full object-contain" alt={title} />
                     </div>
                 </div>
@@ -73,7 +73,7 @@ function Category({ headTitle, categoryProduct }) {
                     <img src={Loading} alt="Loading..." className='text-main-army my-0 lg:my-48' />
                 </div>
             ) : (
-                <div className="grid grid-cols-2 lg:grid-cols-1 lg:grid-rows-1 md:grid-cols-2 1xl:grid-cols-4 xl:grid-cols-4 gap-5 lg:gap-12">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-10 sm:gap-14 lg:gap-12">
                     {renderList}
                 </div>
             )}

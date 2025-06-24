@@ -32,7 +32,7 @@ function Shop() {
   return (
     <div>
       {showPopupSignin && <PopupSignin/>}
-      <div className={`lg:flex lg:gap-5 mx-5 lg:mx-16 mt-36 1xl:mt-36 ${isLoggedin ? 'xl:mt-32' : 'xl:mt-40'}`}>
+      <div className={`lg:flex lg:gap-5 mx-5 lg:mx-8 mt-36 1xl:mt-36 ${isLoggedin ? 'xl:mt-32' : 'xl:mt-40'}`}>
         <FiltersBar />
         <div className="">
           <CardPictShop/>

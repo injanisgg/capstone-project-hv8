@@ -26,9 +26,9 @@ function Navbar({ onToggleFilter }) {
   return (
     <div>
       {/* navbar for xl and lg */}
-      <div className="px-4">
-        <div className='hidden lg:fixed lg:top-0 lg:left-0 lg:right-0 z-30'>
-          <nav className="py-8 w-full bg-white flex flex-col gap-16 items-center text-main-army justify-center">
+      <div className="lg:px-4">
+        <div className='hidden lg:block lg:fixed lg:pt-8 lg:top-0 lg:left-0 lg:right-0 z-30'>
+          <nav className="py-8 w-full px-5 bg-white flex gap-10 items-center text-main-army justify-center">
             <h1 className="text-4xl font-bold">MON.CHÉRIE</h1>
             <NavLink to="/" className={({ isActive }) => isActive? 'hover: underline active font-bold': 'hover:underline'}>Home</NavLink>
             <NavLink to="/shop" className={({ isActive }) => isActive? 'hover: underline active font-bold': 'hover:underline'}>Shop</NavLink>
