@@ -48,10 +48,10 @@ function Profile() {
   }
 
   return (
-    <div className='1xl:mt-36 xl:mt-40'>
+    <div className='mt-36 pb-28 lg:pb-0 1xl:mt-36 xl:mt-40'>
     {/*header*/}
     <header>
-      <div className='flex justify-between xl:mx-20 1xl:mx-16 my-5 xl:my-2 items-center'>
+      <div className='flex flex-col gap-5 lg:flex-row lg:justify-between xl:mx-20 1xl:mx-16 my-5 xl:my-2 items-center'>
         <div className="flex gap-5 items-center">
           <div className="shadow-md rounded-full overflow-hidden">
             <div className="relative">
@@ -63,7 +63,7 @@ function Profile() {
             <span className='text-gray-500'>{profile.email}</span>
           </div>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-10 lg:gap-2">
           <button className="rounded-lg w-24 bg-main-yellow h-10 font-semibold">Edit</button>
           <button className="rounded-lg w-24 bg-red-500 h-10 font-semibold" onClick={handleLogout}>Logout</button>
         </div>
@@ -72,7 +72,7 @@ function Profile() {
     {/*end of header*/}
 
     {/*form profile*/}
-    <form action="" className='flex justify-center mt-4 gap-12'>
+    <form action="" className='flex flex-col lg:flex-row mx-5 lg:mx-0 justify-center mt-4 gap-12'>
       <div className="flex flex-col gap-7 1xl:gap-4">
         <span className='flex flex-col'>
           <label htmlFor="" className='text-main-army font-bold'>Full Name</label>
@@ -141,7 +141,7 @@ function Profile() {
       <div className="flex flex-col">
         <label htmlFor="" className='text-main-army font-bold'>Address</label>
         <textarea 
-          className="top-0 left-0 w-96 1xl:w-80 h-64 1xl:h-56 bg-gray-100 rounded-lg p-5 text-gray-700 placeholder-gray-500 border border-gray-400 resize-none" 
+          className="top-0 left-0 1xl:w-80 h-64 1xl:h-56 bg-gray-100 rounded-lg p-5 text-gray-700 placeholder-gray-500 border border-gray-400 resize-none" 
           placeholder="Your Address"
           value={`${capitalize(profile.address.city)} city, ${capitalize(profile.address.street)} street, ${profile.address.number}, ${profile.address.zipcode}`}
         />

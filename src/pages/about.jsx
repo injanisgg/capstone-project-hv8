@@ -8,7 +8,7 @@ function About() {
   const showPopupSignin = !isLoggedin
 
   return (
-    <div className="mt-36 lg:mt-0">
+    <div className="mt-36 lg:mt-0 pb-20">
       {showPopupSignin && <PopupSignin/>}
       <div className={`flex flex-col lg:flex-row gap-5 1xl:mt-28 ${isLoggedin ? 'xl:mt-24' : 'xl:mt-28'}`}>
       <div className='flex flex-col justify-center items-center xl:my-8 1xl:my-0 1xl:pt-12 1xl:mx-52 xl:mx-20'>
@@ -36,7 +36,7 @@ function About() {
         </div>
       </div>
       </div>
-        <div className='overflow-hidden'>
+        <div className='hidden lg:block lg:overflow-hidden'>
           <div className='relative'>
             <img src={Rose} alt="Rose Blackpink" className='1xl:w-[458px] xl:w-[360px] xl:pt-7' />
           </div>

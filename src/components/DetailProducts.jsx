@@ -137,25 +137,28 @@ const handleAddToCart = () => {
 
   return (
     <>
-      <div className="flex gap-10 mt-32 ml-20">
+      <div className="flex flex-col lg:flex-row gap-3 lg:gap-10 mt-32 ml-0 px-5 lg:ml-20">
         {Object.keys(product).length === 0 ? (
             <div className='flex items-center ml-[34rem]'>
                 <img src={Loading} alt="Loading..." className='text-main-army 1xl:mr-28' />
             </div>
         ) : (
           <>
-            <div className="flex gap-5">
-              <div className="flex flex-col justify-evenly">
+          {/* product image */}
+            <div className="flex flex-col-reverse items-center lg:flex gap-5">
+              <div className="flex flex-row lg:flex-col justify-evenly">
                 {[image, image].map((img, index) => (
-                  <div key={index} className="mb-5 1xl:w-52 xl:w-36">
+                  <div key={index} className="mb-5 w-32 1xl:w-52 xl:w-36">
                     <CardPicture picture={img}/>
                   </div>
                 ))}
               </div>
-              <div className="1xl:w-[30rem] xl:w-80">
+              <div className="w-44 1xl:w-[30rem] xl:w-80">
                 <CardPicture picture={image} />
               </div>
             </div>
+
+            {/* product description */}
             <div className="flex flex-col gap-2 my-2 mx-2">
               <h1 className="text-main-army font-extrabold 1xl:text-3xl xl:text-2xl leading-tight">{title}</h1>
               <div className="flex gap-1 items-center">
@@ -163,9 +166,9 @@ const handleAddToCart = () => {
                 <span className="text-main-army text-sm font-light">{rate}</span>
               </div>
               <div className="text-main-army font-bold text-lg">${price}</div>
-              <p className="text-gray-500 w-[500px]">{category}</p>
-              <p className="text-gray-500 w-[500px]">{description}</p>
-              <div className="border-b-2 border-gray-200 w-[36rem]"></div>
+              <p className="text-gray-500 lg:w-[500px]">{category}</p>
+              <p className="text-gray-500 lg:w-[500px]">{description}</p>
+              <div className="border-b-2 border-gray-200 lg:w-[36rem]"></div>
               <div className="mb-3">
                 <p className="text-gray-500 mb-5">Select Colors</p>
                 <div className="flex gap-3">
@@ -177,8 +180,8 @@ const handleAddToCart = () => {
                   ))}
                 </div>
               </div>
-              <div className="border-b-2 border-gray-200 w-[36rem] my-3"></div>
-              <div className="w-[600px]">
+              <div className="border-b-2 border-gray-200 lg:w-[36rem] my-3"></div>
+              <div className="lg:w-[600px]">
                 {['XX-Small', 'X-Small', 'Small', 'Medium', 'Large', 'X-Large'].map((size, index) => (
                   <button
                     key={index}
@@ -188,18 +191,21 @@ const handleAddToCart = () => {
                   </button>
                 ))}
               </div>
-              <div className="border-b-2 border-gray-200 w-[36rem] my-3"></div>
+              <div className="border-b-2 border-gray-200 lg:w-[36rem] my-3"></div>
               <div className="flex gap-2">
-                <div className="bg-gray-100 rounded-full flex w-[220px] h-10 items-center pl-12">
-                <button
-                    className="py-2 px-4 text-main-army fa-solid fa-minus"
-                    onClick={handleReduceQuantity}></button>
-                <span className="py-2 px-4 text-main-army">{localQuantity}</span>
-                <button
-                    className="py-2 px-4 text-main-army fa-solid fa-plus"
-                    onClick={handleAddQuantity}></button>
+                <div className="bg-gray-100 rounded-full flex lg:w-[220px] h-10 items-center lg:pl-12">
+                  <button
+                      className="py-2 px-4 text-main-army fa-solid fa-minus"
+                      onClick={handleReduceQuantity}>
+                    
+                  </button>
+                  <span className="py-2 px-4 text-main-army">{localQuantity}</span>
+                  <button
+                      className="py-2 px-4 text-main-army fa-solid fa-plus"
+                      onClick={handleAddQuantity}>  
+                  </button>
                 </div>
-                <button className="rounded-3xl 1xl:w-96 xl:w-80 bg-main-yellow h-10 font-semibold" onClick={handleAddToCart && handleRedirectLogin}>
+                <button className="rounded-3xl w-full 1xl:w-96 xl:w-80 bg-main-yellow h-10 font-semibold" onClick={handleAddToCart && handleRedirectLogin}>
                   Add to cart
                 </button>
                </div>

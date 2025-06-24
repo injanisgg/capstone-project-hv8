@@ -44,7 +44,7 @@ function CardPictShop() {
         key={id}
       >
         <div className="bg-white rounded-3xl overflow-hidden" onClick={() => handleRedirect(id)}>
-          <div className="relative p-2 lg:p-8 1xl:w-64 xl:w-48 h-72">
+          <div className="relative p-2 w-36 h-36 lg:p-8 1xl:w-64 xl:w-48 lg:h-72">
             <img src={image} className="w-full h-full object-contain" alt={title} />
           </div>
         </div>
@@ -66,11 +66,13 @@ function CardPictShop() {
   return (
     <>
       {isLoading ? (
-        <div>
-          <img src={LoadingGif} alt="Loading..." className='my-44 1xl:mx-96 xl:mx-80'/>
+        <div className='flex items-center justify-center'>
+          <img src={LoadingGif} alt="Loading..." className='lg:my-44 1xl:mx-96 xl:mx-80'/>
         </div>
       ) : (
-        renderList
+        <div className='grid grid-cols-2 grid-rows-4 justify-center items-center lg:grid-cols-4 gap-5'>
+          {renderList}
+        </div>
       )}
     </>
   );  

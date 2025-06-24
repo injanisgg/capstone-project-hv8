@@ -41,20 +41,20 @@ function FormIn({ welcomeText, buttonText, questOne, actionOne, redirectTo }) {
   };
 
   return (
-    <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
+    <form className="flex flex-col justify-center items-center gap-5 px-5" onSubmit={handleSubmit}>
       <h2 className="text-main-army font-extrabold text-2xl leading-tight">
         {welcomeText}
       </h2>
 
       <input
         type="text"
-        className="form-input w-96 bg-gray-100 rounded-lg py-3 pl-5 pr-4 text-gray-700 placeholder-gray-500 border border-gray-400"
+        className="form-input w-80 lg:w-96 bg-gray-100 rounded-lg py-3 pl-5 pr-4 text-gray-700 placeholder-gray-500 border border-gray-400"
         placeholder="Email"
         value={email}
         onChange={(event) => setEmail(event.target.value)} // Menangkap input email
       />
 
-      <div className="relative w-96">
+      <div className="relative w-80 lg:w-96">
         <input
           type="password"
           className="form-input w-full bg-gray-100 rounded-lg py-3 pl-5 pr-4 text-gray-700 placeholder-gray-500 border border-gray-400"
@@ -66,17 +66,18 @@ function FormIn({ welcomeText, buttonText, questOne, actionOne, redirectTo }) {
         onClick={handleEye}></i>
       </div>
 
-      <div className="flex items-center text-gray-500">
-        <span>
+      <div className="flex items-center gap-6 text-gray-500">
+        <span className="flex items-center">
           <button
             type="button"
             className={`fa-solid ${
               isOn ? "fa-toggle-off text-main-yellow" : "fa-toggle-on text-main-yellow"
             } fa-2x mr-2`}
             onClick={handleToggle}
-          ></button>
+          >
+          </button>
+          <span className="">Remember me</span>
         </span>
-        <span className="mr-28">Remember me</span>
         <span>Forgot Password?</span>
       </div>
 
@@ -86,14 +87,14 @@ function FormIn({ welcomeText, buttonText, questOne, actionOne, redirectTo }) {
 
       <button
         type="submit"
-        className="rounded-lg w-96 bg-main-yellow h-10 font-semibold"
+        className="rounded-lg w-80 lg:w-96 bg-main-yellow h-10 font-semibold"
       >
         {buttonText}
       </button>
 
-      <div className="border-b-2 border-gray-300 w-96 mt-5"></div>
+      <div className="border-b-2 border-gray-300 w-full mt-5"></div>
 
-      <div className="flex gap-3 px-14">
+      <div className="flex gap-3 lg:px-14">
         <span className="text-gray-500">{questOne}</span>
         <span className="text-main-army font-bold hover:underline">
           <a href={redirectTo}>{actionOne}</a>

@@ -45,7 +45,7 @@ function LandingPage() {
         </div>
         {/* Brand page */}
         <div className='py-8 bg-main-army mt-0'>
-            <ul className='flex flex-wrap lg:flex-row gap-5 items-center justify-items-center justify-around'>
+            <ul className='flex flex-wrap lg:flex-row gap-5 gap-y-7 lg:gap-y-0 items-center justify-items-center justify-around'>
                 <li><img src={calvinKlein} alt="Calvin Klein" /></li>
                 <li><img src={gucci} alt="Gucci" /></li>
                 <li><img src={versace} alt="Versace" /></li>
