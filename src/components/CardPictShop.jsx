@@ -71,7 +71,7 @@ function CardPictShop() {
         </div>
       ) : (
         <div className="flex justify-center">
-          <div className='grid w-fit grid-cols-2 justify-center md:grid-cols-4 lg:gap-8 sm:gap-14'>
+          <div className='grid w-fit grid-cols-2 justify-center gap-8 md:grid-cols-4 lg:gap-8 sm:gap-14'>
             {renderList}
           </div>
         </div>

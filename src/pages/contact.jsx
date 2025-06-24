@@ -14,7 +14,7 @@ function Contact() {
         <div className='flex flex-col justify-center items-center 1xl:my-5 xl:mt-4 xl:mb-0 1xl:mx-42 xl:mx-48'>
           <form className='flex flex-col items-center gap-5'>
             <h2 className='text-main-army font-extrabold text-2xl leading-tight text-center lg:text-left'>Contact Us!</h2>
-            <p className="text-gray-500 w-full text-center lg:text-left xl:w-80 1xl:w-[34rem] px-5">Feel free to contact us any time. We will get back to you as soon as we can.</p>
+            <p className="text-gray-500 w-full text-center lg:text-left xl:w-80 1xl:w-[34rem] px-8">Feel free to contact us any time. We will get back to you as soon as we can.</p>
             <input
               type="text"
               className="form-input w-80 mx-5 lg:w-full xl:w-full 1xl:w-full bg-gray-100 rounded-lg py-3 pl-5 pr-4 text-gray-700 placeholder-gray-500 border border-gray-400"
