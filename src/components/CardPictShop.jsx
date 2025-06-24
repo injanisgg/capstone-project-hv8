@@ -70,7 +70,7 @@ function CardPictShop() {
           <img src={LoadingGif} alt="Loading..." className='lg:my-44 1xl:mx-96 xl:mx-80'/>
         </div>
       ) : (
-        <div className='grid grid-cols-2 grid-rows-4 justify-center items-center lg:grid-cols-4 gap-5'>
+        <div className='grid grid-cols-2 justify-self-center lg:grid-cols-4 gap-5'>
           {renderList}
         </div>
       )}
