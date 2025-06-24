@@ -8,11 +8,11 @@ function Contact() {
   const showPopupSignin = !isLoggedin
 
   return (
-    <div className="pb-24 lg:pb-0">
+    <div className="pb-24 w-full lg:pb-0">
       {showPopupSignin && <PopupSignin/>}
       <div className={`flex flex-col lg:flex-row lg:justify-center gap-5 mt-36 ${isLoggedin ? 'xl:mt-24' : 'xl:mt-32'}`}>
         <div className='flex flex-col justify-center items-center 1xl:my-5 xl:mt-4 xl:mb-0 1xl:mx-42 xl:mx-48'>
-          <form className='flex flex-col items-center gap-5'>
+          <form className='flex w-fit flex-col items-center gap-5'>
             <h2 className='text-main-army font-extrabold text-2xl leading-tight text-center lg:text-left'>Contact Us!</h2>
             <p className="text-gray-500 w-full text-center lg:text-left xl:w-80 1xl:w-[34rem] px-8">Feel free to contact us any time. We will get back to you as soon as we can.</p>
             <input
@@ -25,9 +25,9 @@ function Contact() {
               className="form-input w-80 lg:w-full mx-5 bg-gray-100 rounded-lg py-3 pl-5 pr-4 text-gray-700 placeholder-gray-500 border border-gray-400"
               placeholder="Email"
             />
-            <div className="relative w-full">
+            <div className="relative w-fit lg:w-full">
               <textarea 
-                className="lg:top-0 lg:left-0 w-80 lg:w-full mx-14 lg:mx-0 md:mx-[7.5rem] 1xl:h-32 xl:h-24 bg-gray-100 rounded-lg p-5 text-gray-700 placeholder-gray-500 border border-gray-400 resize-none" 
+                className="lg:top-0 lg:left-0 w-80 lg:w-full lg:mx-0 md:mx-[7.5rem] 1xl:h-32 xl:h-24 bg-gray-100 rounded-lg p-5 text-gray-700 placeholder-gray-500 border border-gray-400 resize-none" 
                 placeholder="Write messages you want to tell us"
               />
             </div>
